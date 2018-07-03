@@ -19,10 +19,10 @@ bool mgos_lib_mos_init(void) {
   mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
   mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
-  mgos_pwm_set(4,200,0.8);
-  mgos_pwm_set(16,200,0.8);
-  mgos_pwm_set(5,200,0.8);
-  mgos_pwm_set(19,200,0.8);
+  mgos_pwm_set(4,200,1);
+  mgos_pwm_set(16,200,1);
+  mgos_pwm_set(5,200,0);
+  mgos_pwm_set(19,200,1);
 /*
  struct mgos_pwm_rgb_led led;
  mgos_pwm_rgb_led_init(&led, 4, 16, 5);
