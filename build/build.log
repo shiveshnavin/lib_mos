@@ -1,0 +1,175 @@
+Handling lib "aws"...
+Handling lib "core"...
+The --lib flag was not given for it, checking repository
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws" does not exist, cloning...
+
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core" does not exist, cloning...
+
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core" does not exist, cloning...
+
+Hash is updated: "" -> "5b1841914ea360fc1ebf5d8a1c965845e5885ddd"
+Falling back to sources for "aws" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/aws/releases/download/2.3/libaws-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws"
+Handling lib "ca-bundle"...
+Handling lib "mqtt"...
+The --lib flag was not given for it, checking repository
+Handling lib "shadow"...
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle" does not exist, cloning...
+
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow" does not exist, cloning...
+
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt" does not exist, cloning...
+
+WARNING: the lib "core" does not have version 2.3. Resorting to latest, but the build might fail.
+It usually happens if you clone the latest version of some example app, and try to build it with the mos tool which is older than the lib (in this case, "core").
+Consider using the version 2.3 of the app (git checkout 2.3), or using latest mos tool (mos update latest).
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core" is updated recently enough, don't touch it
+Hash is updated: "" -> "1883e8f92e40c869eb5317dfd520227808cbffef"
+Hash is updated: "" -> "8e3604273631661592de08ea51d19a643d04ad8f"
+Falling back to sources for "core" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/core/releases/download/2.3/libcore-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core"
+Handling lib "mongoose"...
+The --lib flag was not given for it, checking repository
+Handling lib "vfs-fs-spiffs"...
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose" does not exist, cloning...
+
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs" does not exist, cloning...
+
+Hash is updated: "" -> "b6698638dccafd3347212e0f161556f1776617d5"
+Falling back to sources for "ca-bundle" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/ca-bundle/releases/download/2.3/libca-bundle-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle"
+Falling back to sources for "shadow" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/shadow/releases/download/2.3/libshadow-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow"
+Falling back to sources for "mqtt" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/mqtt/releases/download/2.3/libmqtt-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt"
+Hash is updated: "" -> "22166e042a608c6a79d44af36d65d2e71cbe0790"
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs" does not exist, cloning...
+
+WARNING: the lib "vfs-fs-spiffs" does not have version 2.3. Resorting to latest, but the build might fail.
+It usually happens if you clone the latest version of some example app, and try to build it with the mos tool which is older than the lib (in this case, "vfs-fs-spiffs").
+Consider using the version 2.3 of the app (git checkout 2.3), or using latest mos tool (mos update latest).
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs" is updated recently enough, don't touch it
+Falling back to sources for "vfs-fs-spiffs" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/vfs-fs-spiffs/releases/download/2.3/libvfs-fs-spiffs-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs"
+Handling lib "vfs-common"...
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common" does not exist, cloning...
+
+Successfully fetched prebuilt binary for "mongoose" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/lib/esp32/libmongoose.a"
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose"
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common" does not exist, cloning...
+
+WARNING: the lib "vfs-common" does not have version 2.3. Resorting to latest, but the build might fail.
+It usually happens if you clone the latest version of some example app, and try to build it with the mos tool which is older than the lib (in this case, "vfs-common").
+Consider using the version 2.3 of the app (git checkout 2.3), or using latest mos tool (mos update latest).
+The --lib flag was not given for it, checking repository
+Repository "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common" is updated recently enough, don't touch it
+Falling back to sources for "vfs-common" (failed to fetch prebuilt binary: got 404 status code when accessed https://github.com/mongoose-os-libs/vfs-common/releases/download/2.3/libvfs-common-esp32.a)
+Prepared local dir: "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common"
+The flag --repo is not given, going to use mongoose-os repository
+Sources: [/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src/lib_mos.c]
+Include dirs: [/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32 /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32 /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32]
+Binary libs: []
+Building...
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222" to "/app"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os" to "/mongoose-os"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs"
+mount from "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen" to "/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen"
+Docker arguments: run --name mos_build_2018-07-03T13-52-33-00_7330966324135917236 --rm -i -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32 -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32 -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32 -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222:/app -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include:/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include -v /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/modules/mongoose-os:/mongoose-os --user 0:0 docker.io/mgos/esp32-build:3.0-rc1-r9 /bin/bash -c nice make '-j' '16' '-C' '/app' '-f' '/mongoose-os/fw/platforms/esp32/Makefile.build' '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib/libmoslib.a' 'APP=lib_mos' 'APP_BIN_LIBS=' 'APP_CFLAGS=-DMGOS_HAVE_AWS=1 -DMGOS_HAVE_CA_BUNDLE=1 -DMGOS_HAVE_CORE=1 -DMGOS_HAVE_MONGOOSE=1 -DMGOS_HAVE_MQTT=1 -DMGOS_HAVE_SHADOW=1 -DMGOS_HAVE_VFS_COMMON=1 -DMGOS_HAVE_VFS_FS_SPIFFS=1 -DMG_ENABLE_DNS=1 -DMG_ENABLE_DNS_SERVER=1 -DMG_ENABLE_MQTT=1 -DMG_ENABLE_SNTP=1' 'APP_CONF_SCHEMA=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/mos_conf_schema.yml' 'APP_CXXFLAGS=-DMGOS_HAVE_AWS=1 -DMGOS_HAVE_CA_BUNDLE=1 -DMGOS_HAVE_CORE=1 -DMGOS_HAVE_MONGOOSE=1 -DMGOS_HAVE_MQTT=1 -DMGOS_HAVE_SHADOW=1 -DMGOS_HAVE_VFS_COMMON=1 -DMGOS_HAVE_VFS_FS_SPIFFS=1 -DMG_ENABLE_DNS=1 -DMG_ENABLE_DNS_SERVER=1 -DMG_ENABLE_MQTT=1 -DMG_ENABLE_SNTP=1' 'APP_FS_FILES=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs/ca.pem' 'APP_INCLUDES=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32 /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32 /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32' 'APP_SOURCES=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src/lib_mos.c' 'APP_VERSION=1.0' 'BUILD_DIR=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs' 'ESP_IDF_EXTRA_COMPONENTS=' 'ESP_IDF_SDKCONFIG_OPTS=' 'FFI_SYMBOLS=' 'FS_STAGING_DIR=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/fs' 'FW_DIR=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/fw' 'GEN_DIR=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen' 'MANIFEST_FINAL=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/mos_final.yml' 'MGOS_HAVE_AWS=1' 'MGOS_HAVE_CA_BUNDLE=1' 'MGOS_HAVE_CORE=1' 'MGOS_HAVE_MONGOOSE=1' 'MGOS_HAVE_MQTT=1' 'MGOS_HAVE_SHADOW=1' 'MGOS_HAVE_VFS_COMMON=1' 'MGOS_HAVE_VFS_FS_SPIFFS=1' 'MGOS_PATH=/mongoose-os' 'PLATFORM=esp32' 'MGOS_MAIN_COMPONENT=moslib'
+make: Entering directory '/app'
+/mongoose-os/fw/platforms/esp32/Makefile.build:179: warning: overriding recipe for target 'defconfig'
+/opt/Espressif/esp-idf/make/project_config.mk:75: warning: ignoring old recipe for target 'defconfig'
+/mongoose-os/fw/platforms/esp32/Makefile.build:179: warning: overriding recipe for target 'menuconfig'
+/opt/Espressif/esp-idf/make/project_config.mk:62: warning: ignoring old recipe for target 'menuconfig'
+GENCONFIG
+#
+# configuration written to /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/sdkconfig
+#
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cs_mbedtls'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/spiffs'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cryptoauthlib'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/xtensa-debug-module'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/vfs'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/tcpip_adapter'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/wpa_supplicant'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/soc'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/pthread'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/newlib'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/nvs_flash'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/spi_flash'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/partition_table'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/micro-ecc'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/partition_table'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/tcpip_adapter'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/lwip'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/log'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/spiffs'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/heap'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cryptoauthlib'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/freertos'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/xtensa-debug-module'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/wpa_supplicant'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/newlib'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cs_mbedtls'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/spi_flash'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/expat'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esptool_py'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/ethernet'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/pthread'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esptool_py'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/micro-ecc'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/soc'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/nvs_flash'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/vfs'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/driver'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/heap'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esp_adc_cal'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esp32'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/lwip'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/bootloader_support'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cxx'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/app_update'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/log'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/bootloader'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/app_trace'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/bootloader'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/freertos'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/ethernet'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/expat'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esp_adc_cal'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/esp32'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/driver'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/cxx'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/bootloader_support'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/app_update'
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/app_trace'
+make[1]: Entering directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib'
+  GEN   /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/mgos_config.c
+  GEN   /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/mgos_ro_vars.c
+CC lib_mos.o
+AR /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib/libmoslib.a
+make[1]: Leaving directory '/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/objs/moslib'
+make: Leaving directory '/app'
+Target build/objs/moslib/libmoslib.a is built successfully
