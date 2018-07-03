@@ -4,16 +4,16 @@
 bool is2(int no)
 {
 
-printf("Hello From Library.is2");
-return no==2;
+	return no==2;
 
 }
 
 
 bool mgos_lib_mos_init(void) {
 
-printf("Hello From Library");
+  printf("Hello From Library");
 
   LOG(LL_INFO, ("%s", "Hello From Library"));
+  mgos_pwm_set(4,0.4,200);
   return true;
 }
