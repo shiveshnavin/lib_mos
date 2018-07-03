@@ -3,181 +3,31 @@ type: lib
 version: "1.0"
 platform: esp32
 platforms:
-- cc3200
-- cc3220
 - esp32
 - esp8266
-- pic32
-- stm32
 author: mongoose-os
 description: An empty lib that does nothing
 sources:
 - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src/lib_mos.c
 includes:
 - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/include/esp32
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/spiffs
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/include/esp32
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/include/esp32
-filesystem:
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle/fs/ca.pem
+- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/include
 libs:
 - origin: https://github.com/mongoose-os-libs/mongoose
   location: https://github.com/mongoose-os-libs/mongoose
   suffixtpl: ""
-config_schema:
-- - mqtt
-  - o
-  - title: MQTT settings
-- - mqtt.enable
-  - b
-  - false
-  - title: Enable MQTT
-- - mqtt.server
-  - s
-  - iot.eclipse.org:1883
-  - title: MQTT server
-- - mqtt.client_id
-  - s
-  - ""
-  - title: ClientID t send to the broker. Defaults to device.id.
-- - mqtt.user
-  - s
-  - ""
-  - title: User name
-- - mqtt.pass
-  - s
-  - ""
-  - title: Password
-- - mqtt.reconnect_timeout_min
-  - d
-  - 2
-  - title: Starting reconnect timeout
-- - mqtt.reconnect_timeout_max
-  - d
-  - 60
-  - title: Maximum reconnect timeout
-- - mqtt.ssl_cert
-  - s
-  - ""
-  - title: Client certificate to present to the server
-- - mqtt.ssl_key
-  - s
-  - ""
-  - title: Private key corresponding to the certificate
-- - mqtt.ssl_ca_cert
-  - s
-  - ""
-  - title: Verify server certificate using this CA bundle
-- - mqtt.ssl_cipher_suites
-  - s
-  - ""
-  - title: Cipher suites to offer to the server
-- - mqtt.ssl_psk_identity
-  - s
-  - ""
-  - title: PSK identity (must specify PSK cipher suites)
-- - mqtt.ssl_psk_key
-  - s
-  - ""
-  - title: PSK key
-- - mqtt.clean_session
-  - b
-  - true
-  - title: Clean Session
-- - mqtt.keep_alive
-  - i
-  - 60
-  - title: Keep alive interval
-- - mqtt.will_topic
-  - s
-  - ""
-  - title: Will topic
-- - mqtt.will_message
-  - s
-  - ""
-  - title: Will message
-- - mqtt.max_qos
-  - i
-  - 2
-  - title: Limit QoS of outgoing messages to at most this
-- - mqtt.recv_mbuf_limit
-  - i
-  - 3072
-  - title: Limit recv buffer size
-- - debug.stdout_topic
-  - s
-  - ""
-  - title: MQTT topic to publish STDOUT to
-- - debug.stderr_topic
-  - s
-  - ""
-  - title: MQTT topic to publish STDERR to
-- - shadow
-  - o
-  - title: Device shadow settings
-- - shadow.enable
-  - b
-  - true
-  - title: Enable device shadow functionality
-- - shadow.lib
-  - s
-  - ""
-  - title: Preferred shadow lib, e.g. aws, dash, gcp
-- - aws
-  - o
-  - title: AWS settings
-- - aws.thing_name
-  - s
-  - ""
-  - title: Set thing name. If not specified, device.id is used
-- - aws.greengrass
-  - o
-  - title: AWS Greengrass settings
-- - aws.greengrass.enable
-  - b
-  - false
-  - title: Enable AWS Greengrass service
-- - aws.greengrass.reconnect_timeout_min
-  - i
-  - 2
-  - title: Starting reconnect timeout
-- - aws.greengrass.reconnect_timeout_max
-  - i
-  - 60
-  - title: Maximum reconnect timeout
-- - mqtt.recv_mbuf_limit
-  - 8192
 build_vars:
   ESP_IDF_EXTRA_COMPONENTS: ""
   ESP_IDF_SDKCONFIG_OPTS: ""
-  MGOS_HAVE_AWS: "1"
-  MGOS_HAVE_CA_BUNDLE: "1"
-  MGOS_HAVE_CORE: "1"
   MGOS_HAVE_MONGOOSE: "1"
-  MGOS_HAVE_MQTT: "1"
-  MGOS_HAVE_SHADOW: "1"
-  MGOS_HAVE_VFS_COMMON: "1"
-  MGOS_HAVE_VFS_FS_SPIFFS: "1"
+  MGOS_HAVE_PWM: "1"
 cdefs:
   MG_ENABLE_DNS: "1"
   MG_ENABLE_DNS_SERVER: "1"
   MG_ENABLE_MQTT: "1"
   MG_ENABLE_SNTP: "1"
-  MGOS_HAVE_AWS: "1"
-  MGOS_HAVE_CA_BUNDLE: "1"
-  MGOS_HAVE_CORE: "1"
   MGOS_HAVE_MONGOOSE: "1"
-  MGOS_HAVE_MQTT: "1"
-  MGOS_HAVE_SHADOW: "1"
-  MGOS_HAVE_VFS_COMMON: "1"
-  MGOS_HAVE_VFS_FS_SPIFFS: "1"
+  MGOS_HAVE_PWM: "1"
 tags:
 - c
 libs_version: "2.3"
@@ -189,56 +39,13 @@ libs_handled:
   path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose
   sources:
   - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/src
-- name: ca-bundle
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/ca-bundle
-  deps:
-  - mongoose
-- name: mqtt
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt
+- name: pwm
+  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm
   deps:
   - mongoose
   sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mqtt/src
-- name: shadow
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow
-  deps:
-  - mongoose
-  sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/shadow/src
-- name: aws
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws
-  deps:
-  - ca-bundle
-  - mqtt
-  - shadow
-  sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/aws/src
-- name: vfs-common
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common
-  sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-common/src/esp32
-- name: vfs-fs-spiffs
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs
-  deps:
-  - vfs-common
-  sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/vfs-fs-spiffs/src/spiffs
-- name: core
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core
-  deps:
-  - mongoose
-  - vfs-fs-spiffs
-  sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/core/src/esp32
+  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/src
+  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/src/esp32
 init_deps:
 - mongoose
-- ca-bundle
-- mqtt
-- shadow
-- aws
-- vfs-common
-- vfs-fs-spiffs
-- core
+- pwm

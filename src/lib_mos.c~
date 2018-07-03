@@ -1,5 +1,5 @@
 #include "mgos.h"
-
+#include "mgos_pwm.h"
 
 bool is2(int no)
 {
