@@ -94,7 +94,7 @@ static bool is_firmware_loaded()
 	return is_loading;
 }
 
-int MAX_STEP=25;
+int MAX_STEP=250;
 static void init_timer_cb(void *arg) {
   
 
