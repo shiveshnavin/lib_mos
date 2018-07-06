@@ -20,7 +20,7 @@ static void setrgbw(struct rgbw color){
  g=color.g/255;
  b=color.b/255;
  w=color.w/255; 
- LOG(LL_INFO, ("%f %f %f %f",r,g,b,w );  
+ printf ("%f %f %f %f",r,g,b,w );  
 
   mgos_pwm_set(4,200,color.r/255);
   mgos_pwm_set(16,200,color.r/255);
