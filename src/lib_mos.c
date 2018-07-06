@@ -99,6 +99,18 @@ static bool is_firmware_loaded()
 	return is_loading;
 }
 
+static bool lib_mos_init_done(bool initdone)
+{
+
+	bool success=false;
+		
+	if(timer_no!=-1&&initdone)
+	{
+		mgos_clear_timer(timer_no);
+  LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
+	}
+	return success;
+}
 int MAX_STEP=200;
 static void init_timer_cb(void *arg) {
   
@@ -241,18 +253,6 @@ static void init_timer_cb(void *arg) {
 
 }
 
-static bool lib_mos_init_done(bool initdone)
-{
-
-	bool success=false;
-		
-	if(timer_no!=-1&&initdone)
-	{
-		mgos_clear_timer(timer_no);
-  LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
-	}
-	return success;
-}
 bool mgos_lib_mos_init(void) {
 /*
   FILE *fp;
