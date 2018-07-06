@@ -55,7 +55,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
            int db=rgb1.b-rgb0.b;
            int dw=rgb1.w-rgb0.w; 
         
-       printf ("\n%f %f %f %f",dr,dg,db,dw );  
+       //printf ("\n%f %f %f %f",dr,dg,db,dw );  
 
          
 			rgbwf.r=0,
@@ -94,7 +94,7 @@ static bool is_firmware_loaded()
 	return is_loading;
 }
 
-int MAX_STEP=250;
+int MAX_STEP=200;
 static void init_timer_cb(void *arg) {
   
 
@@ -117,7 +117,7 @@ static void init_timer_cb(void *arg) {
 						rgbwf.g=rgbwf.g+(255.0/n);	
        					//printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
 						setrgbw(rgbwf);
-						mgos_usleep(50);
+						mgos_usleep(5000);
 					}
 
 					for (i = 0; i < n; i++)
@@ -126,7 +126,7 @@ static void init_timer_cb(void *arg) {
 						rgbwf.g=rgbwf.g-(255.0/n);	
        					//printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
 						setrgbw(rgbwf);
-						mgos_usleep(50);
+						mgos_usleep(5000);
 					}
 			curColor=GREEN;
 
