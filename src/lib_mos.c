@@ -15,7 +15,7 @@ static int timer_no=-1;
  
 static void setrgbw(struct rgbw color){
 
- LOG(LL_INFO, ("%d %d %d %d",color.r/255,color.g/255,color.b/255,color.w/255));  
+ LOG(LL_INFO, ("%f %f %f %f",color.r/255,color.g/255,color.b/255,color.w/255));  
   mgos_pwm_set(4,200,color.r/255);
   mgos_pwm_set(16,200,color.r/255);
   mgos_pwm_set(5,200,color.b/255);
