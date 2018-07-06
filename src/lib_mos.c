@@ -121,6 +121,8 @@ static void init_timer_cb(void *arg) {
 
 bool mgos_lib_mos_init(void) {
 
+  FILE *fp;
+	char *buf = "xxxxxxxxxxxxxx"; 
   printf("Hello From Library");
 
   LOG(LL_INFO, ("%s", "Hello From Library Log"));  
@@ -146,12 +148,15 @@ cgreen.g=250;
 cblue=color;
 cblue.b=250;
 
-	FILE *fp;
 	fp=fopen("is_loading.bin", "w");
 	fwrite("still loading" , 1 , sizeof("still loading") , fp );
 	fclose(fp);
-
-  timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+ 
+	fp=fopen("is_loading.bin", "r");
+	fread(buf, 1, sizeof(buf), fp);
+	fclose(fp);
+	LOG(LL_INFO, ("%s", buf));  
+  //timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
  
 
   return true;
