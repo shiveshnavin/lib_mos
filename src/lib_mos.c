@@ -20,6 +20,22 @@ static void setrgbw(struct rgbw color){
  g=color.g/255;
  b=color.b/255;
  w=color.w/255; 
+ if(r<0)
+	r=0;
+if(g<0)
+	g=0;
+if(b<0)
+	b=0;
+if(w<0)
+	w=0;
+if(r>255)
+	r=255;
+if(g>255)
+	g=255;
+if(b>255)
+	b=255;
+if(w>255)
+	w=255;
  printf ("%f %f %f %f",r,g,b,w );  
 
   mgos_pwm_set(4,200,color.r/255);
@@ -54,7 +70,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
                rgbwf.b=rgb0.b + ((db * i) / step);
                rgbwf.w=rgb0.w + ((dw * i) / step);
               
-			   printf("%d %f",rgbwf.r,((dr * i) / step));
+			  // printf("%d %f",rgbwf.r,((dr * i) / step));
 			   setrgbw(rgbwf);
                mgos_usleep(5);
                
@@ -78,6 +94,7 @@ static bool is_firmware_loaded()
 	return is_loading;
 }
 
+int MAX_STEP=25;
 static void init_timer_cb(void *arg) {
   
 
@@ -86,33 +103,122 @@ static void init_timer_cb(void *arg) {
 			if(curColor==RED)
 			{
 
+					int i=0;
+					int n = MAX_STEP;
+					struct rgbw rgbwf;
+					rgbwf.r=0;
+					rgbwf.g=0;
+					rgbwf.b=0;
+					rgbwf.w=0;
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.g=rgbwf.g+(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.g=rgbwf.g-(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
 			curColor=GREEN;
-			animate(czero,cgreen);
-			animate(cgreen,czero);
+
+
 
 			}
 			else if(curColor==GREEN)
 			{
 
-			curColor=BLUE;
-			animate(czero,cblue);
-			animate(cblue,czero);
 
+					int i=0;
+					int n = MAX_STEP;
+					struct rgbw rgbwf;
+					rgbwf.r=0;
+					rgbwf.g=0;
+					rgbwf.b=0;
+					rgbwf.w=0;
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.b=rgbwf.b+(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.b=rgbwf.b-(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+			curColor=BLUE;
+			 
 			}
 			else if(curColor==BLUE){
 
 
-			curColor=RED;
-			animate(czero,cred);
-			animate(cred,czero);
 
+					int i=0;
+					int n = MAX_STEP;
+					struct rgbw rgbwf;
+					rgbwf.r=0;
+					rgbwf.g=0;
+					rgbwf.b=0;
+					rgbwf.w=0;
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.r=rgbwf.r+(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.r=rgbwf.r-(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+			curColor=RED;
+			 
 			}
 			else{
 
-			curColor=RED;
-			animate(czero,cred);
-			animate(cred,czero);
 
+					int i=0;
+					int n = MAX_STEP;
+					struct rgbw rgbwf;
+					rgbwf.r=0;
+					rgbwf.g=0;
+					rgbwf.b=0;
+					rgbwf.w=0;
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.r=rgbwf.r+(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+
+					for (i = 0; i < n; i++)
+					{
+
+						rgbwf.r=rgbwf.r-(255/n);				
+						setrgbw(rgbwf);
+						mgos_usleep(5);
+					}
+			curColor=RED;
+			 
 			}
 
 
