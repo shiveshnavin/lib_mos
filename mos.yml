@@ -7,7 +7,10 @@ sources:
   - src
 filesystem:
   - fs
+
 config_schema:
+  - ["is_loading", "i", false,{title: "isInitDone"}]
+
 libs: 
   - origin: https://github.com/mongoose-os-libs/pwm 
 
