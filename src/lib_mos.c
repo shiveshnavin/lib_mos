@@ -114,7 +114,8 @@ static void init_timer_cb(void *arg) {
 					for (i = 0; i < n; i++)
 					{
 
-						rgbwf.g=rgbwf.g+(255/n);				
+						rgbwf.g=rgbwf.g+(255/n);	
+       					printf ("%d \n",rgbwf.g );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
@@ -122,7 +123,8 @@ static void init_timer_cb(void *arg) {
 					for (i = 0; i < n; i++)
 					{
 
-						rgbwf.g=rgbwf.g-(255/n);				
+						rgbwf.g=rgbwf.g-(255/n);	
+       					printf ("%d \n",rgbwf.g );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
