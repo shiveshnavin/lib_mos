@@ -167,3 +167,15 @@ cblue.b=250;
 
   return true;
 }
+
+static bool lib_mos_init_done()
+{
+
+	bool success=false;
+		
+	if(timer_no!=-1)
+	{
+		mgos_clear_timer(timer_no);
+	}
+	return success;
+}
