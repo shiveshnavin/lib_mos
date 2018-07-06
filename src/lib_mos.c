@@ -20,7 +20,7 @@ static void setrgbw(struct rgbw color){
  g=color.g/255;
  b=color.b/255;
  w=color.w/255; 
- //printf ("%f %f %f %f",r,g,b,w );  
+ printf ("%f %f %f %f",r,g,b,w );  
 
   mgos_pwm_set(4,200,color.r/255);
   mgos_pwm_set(16,200,color.r/255);
@@ -30,19 +30,18 @@ static void setrgbw(struct rgbw color){
 }
 static void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
+            int i=0;
+            struct rgbw rgbwf;
+			int step=10;
  
  	       int dr=rgb1.r-rgb0.r;
            int dg=rgb1.g-rgb0.g;
            int db=rgb1.b-rgb0.b;
            int dw=rgb1.w-rgb0.w; 
-       
+        
        printf ("%d %d %d %d\n",dr,dg,db,dw );  
 
-          if(dr!=0 || dg!=0 || db !=0 || dw!=0  )
-          {
-            int i=0;
-            struct rgbw rgbwf;
-			int step=10;
+         
 			rgbwf.r=0,
 			rgbwf.g=0;
 			rgbwf.b=0;
@@ -59,8 +58,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
                mgos_usleep(5);
                
             };
-      
-          } 
+       
 }
 static bool is_firmware_loaded()
 {
