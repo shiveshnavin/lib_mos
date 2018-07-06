@@ -1,30 +1,124 @@
 #include "mgos.h"
 #include "mgos_pwm.h"
+#include <stdio.h>
 
-bool is2(int no)
+struct rgbw{
+	int r,g,b,w;
+};
+
+static struct rgbw color,pcolor;
+static struct rgbw cred,cgreen,cblue;
+
+static int RED=1,GREEN=2,BLUE=3;
+static int curColor=-1;
+static int timer_no=-1;
+ 
+static void setrgbw(struct rgbw color){
+
+  mgos_pwm_set(4,200,color.r);
+  mgos_pwm_set(16,200,color.g);
+  mgos_pwm_set(5,200,color.b);
+  mgos_pwm_set(19,200,color.w);
+
+}
+static void animate(struct rgbw rgb1)
 {
 
-	return no==2;
-
+	       struct rgbw rgb0=pcolor;
+ 	       int dr=rgb1.r-rgb0.r;
+           int dg=rgb1.g-rgb0.g;
+           int db=rgb1.b-rgb0.b;
+           int dw=rgb1.w-rgb0.w; 
+       
+       
+          if(dr!=0 || dg!=0 || db !=0 || dw!=0  )
+          {
+            int i=0;
+            struct rgbw rgbwf;
+			int step=10;
+			rgbwf.r=0,
+			rgbwf.g=0;
+			rgbwf.b=0;
+			rgbwf.w=0;
+			 
+            for(i=0;i<=step;i++)
+            {
+               rgbwf.r=rgb0.r + ((dr * i) / step);
+               rgbwf.g=rgb0.g + ((dg * i) / step);
+               rgbwf.b=rgb0.b + ((db * i) / step);
+               rgbwf.w=rgb0.w + ((dw * i) / step);
+              
+			   setrgbw(rgbwf);
+               mgos_usleep(5);
+               
+            };
+      
+          }
+		pcolor=rgb1;
 }
-void setrgbw(float r,float g,float b,float w){
-
-  mgos_pwm_set(4,200,r);
-  mgos_pwm_set(16,200,g);
-  mgos_pwm_set(5,200,b);
-  mgos_pwm_set(19,200,w);
-
-}
-
-
-bool is_firmware_loaded()
+static bool is_firmware_loaded()
 {
-//todo
-return false;
+
+	bool is_loading=false;
+	FILE *fp;
+	char *buf = "xxxxxxxxxxxxxx"; 
+	fp=fopen("is_loading.bin", "r");
+	fread(buf, 1, sizeof(buf), fp);
+	fclose(fp);
+	if(buf[0]=='s')
+	{
+		is_loading=true;
+	}
+	LOG(LL_INFO, ("%s", buf));  
+	return is_loading;
 }
 
-int RED=1,GREEN=2,BLUE=3;
-int curColor=RED;
+static void init_timer_cb(void *arg) {
+  
+
+	if(!is_firmware_loaded()){
+			
+			if(curColor==RED)
+			{
+
+			curColor=GREEN;
+			animate(cgreen);
+
+			}
+			else if(curColor==GREEN)
+			{
+
+			curColor=BLUE;
+			animate(cblue);
+
+			}
+			else if(curColor==BLUE){
+
+
+			curColor=RED;
+			animate(cred);
+
+			}
+			else{
+
+			curColor=RED;
+			animate(cred);
+
+			}
+
+
+		}
+		else {
+
+				mgos_clear_timer(timer_no);
+
+		}
+
+  LOG(LL_INFO, ("%s", "Changing color"));  
+
+
+}
+
 bool mgos_lib_mos_init(void) {
 
   printf("Hello From Library");
@@ -36,46 +130,29 @@ bool mgos_lib_mos_init(void) {
   mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
 
-//in timer loop
-	if(is_firmware_loaded()){
-		
-		if(curColor==RED)
-		{
+color.r=0;
+color.g=0;
+color.b=0;
+color.w=0;
 
-		curColor=GREEN;
-		setrgbw(0,1,0,0);
+pcolor=color;
 
-		}
-		else if(curColor==GREEN)
-		{
+cred=color;
+cred.r=250;
 
-		curColor=BLUE;
-		setrgbw(0,0,1,0);
+cgreen=color;
+cgreen.g=250;
 
-		}
-		else if(curColor==BLUE{
+cblue=color;
+cblue.b=250;
 
+	FILE *fp;
+	fp=fopen("is_loading.bin", "w");
+	fwrite("still loading" , 1 , sizeof("still loading") , fp );
+	fclose(fp);
 
-		curColor=RED;
-		setrgbw(1,0,0,0);
-
-		}
-		else{
-
-		curColor=RED;
-		setrgbw(1,0,0,0);
-
-		}
-
-	}
+  timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
  
- 	
-/*
- struct mgos_pwm_rgb_led led;
- mgos_pwm_rgb_led_init(&led, 4, 16, 5);
- mgos_pwm_rgb_led_set(&led, 255, 255, 255, 250); */
-
-
 
   return true;
 }
