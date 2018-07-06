@@ -1,6 +1,7 @@
 APP=lib_mos
 APP_BIN_LIBS=
 APP_CFLAGS=-DMGOS_HAVE_MONGOOSE=1 -DMGOS_HAVE_PWM=1 -DMG_ENABLE_DNS=1 -DMG_ENABLE_DNS_SERVER=1 -DMG_ENABLE_MQTT=1 -DMG_ENABLE_SNTP=1
+APP_CONF_SCHEMA=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/mos_conf_schema.yml
 APP_CXXFLAGS=-DMGOS_HAVE_MONGOOSE=1 -DMGOS_HAVE_PWM=1 -DMG_ENABLE_DNS=1 -DMG_ENABLE_DNS_SERVER=1 -DMG_ENABLE_MQTT=1 -DMG_ENABLE_SNTP=1
 APP_FS_FILES=
 APP_INCLUDES=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/include

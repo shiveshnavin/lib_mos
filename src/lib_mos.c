@@ -5,7 +5,7 @@
 struct rgbw{
 	double r,g,b,w;
 };
-
+static int count=0;
 static struct rgbw color,pcolor;
 static struct rgbw cred,cgreen,cblue,czero;
 
@@ -92,6 +92,10 @@ static bool is_firmware_loaded()
 		is_loading=true;
 	}
 	LOG(LL_INFO, ("%s", buf));  */
+	if(count++>3)
+	{
+		is_loading=true;
+	}
 	return is_loading;
 }
 
@@ -228,7 +232,7 @@ static void init_timer_cb(void *arg) {
 		}
 		else {
 
-				mgos_clear_timer(timer_no);
+				lib_mos_init_done(true);
 
 		}
 

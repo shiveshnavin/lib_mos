@@ -16,6 +16,11 @@ libs:
 - origin: https://github.com/mongoose-os-libs/mongoose
   location: https://github.com/mongoose-os-libs/mongoose
   suffixtpl: ""
+config_schema:
+- - is_loading
+  - i
+  - false
+  - title: isInitDone
 build_vars:
   ESP_IDF_EXTRA_COMPONENTS: ""
   ESP_IDF_SDKCONFIG_OPTS: ""
