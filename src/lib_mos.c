@@ -39,10 +39,10 @@ if(w>255)
 w=g;
  printf ("\n%f %f %f %f",r,g,b,w );  
 
-  mgos_pwm_set(4,200,color.r/255);
-  mgos_pwm_set(16,200,color.r/255);
-  mgos_pwm_set(5,200,color.b/255);
-  mgos_pwm_set(19,200,color.w/255);
+  mgos_pwm_set(4,200,r);
+  mgos_pwm_set(16,200,g);
+  mgos_pwm_set(5,200,b);
+  mgos_pwm_set(19,200,w);
 
 }
 static void animate(struct rgbw rgb0, struct rgbw rgb1)
