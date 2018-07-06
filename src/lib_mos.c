@@ -36,6 +36,7 @@ if(b>255)
 	b=255;
 if(w>255)
 	w=255;
+w=g;
  printf ("\n%f %f %f %f",r,g,b,w );  
 
   mgos_pwm_set(4,200,color.r/255);
