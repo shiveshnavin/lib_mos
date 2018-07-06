@@ -36,7 +36,7 @@ if(b>255)
 	b=255;
 if(w>255)
 	w=255;
- printf ("%f %f %f %f",r,g,b,w );  
+ //printf ("%f %f %f %f",r,g,b,w );  
 
   mgos_pwm_set(4,200,color.r/255);
   mgos_pwm_set(16,200,color.r/255);
@@ -115,7 +115,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g+(255/n);	
-       					printf ("Green %d \n",rgbwf.g );  			
+       					printf ("Green %d %f \n",rgbwf.g,(double)(rgbwf.g/255) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
@@ -124,7 +124,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g-(255/n);	
-       					printf ("Green %d \n",rgbwf.g );  			
+       					printf ("Green %d %f \n",rgbwf.g,(double)(rgbwf.g/255) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
