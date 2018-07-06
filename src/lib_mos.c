@@ -60,7 +60,7 @@ static bool is_firmware_loaded()
 {
 
 	bool is_loading=false;
-	FILE *fp;
+	/*FILE *fp;
 	char *buf = "xxxxxxxxxxxxxx"; 
 	fp=fopen("is_loading.bin", "r");
 	fread(buf, 1, sizeof(buf), fp);
@@ -69,7 +69,7 @@ static bool is_firmware_loaded()
 	{
 		is_loading=true;
 	}
-	LOG(LL_INFO, ("%s", buf));  
+	LOG(LL_INFO, ("%s", buf));  */
 	return is_loading;
 }
 
@@ -148,7 +148,7 @@ cgreen.g=250;
 cblue=color;
 cblue.b=250;
 
-	fp=fopen("is_loading.bin", "w");
+	/*fp=fopen("is_loading.bin", "w");
 	fwrite("still loading" , 1 , sizeof("still loading") , fp );
 	fclose(fp);
  
@@ -156,7 +156,7 @@ cblue.b=250;
 	fread(buf, 1, sizeof(buf), fp);
 	fclose(fp);
 	LOG(LL_INFO, ("%s", buf));  
-  //timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+  */timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
  
 
   return true;
