@@ -15,10 +15,10 @@ static int timer_no=-1;
  
 static void setrgbw(struct rgbw color){
 
-  mgos_pwm_set(4,200,color.r);
-  mgos_pwm_set(16,200,color.g);
-  mgos_pwm_set(5,200,color.b);
-  mgos_pwm_set(19,200,color.w);
+  mgos_pwm_set(4,200,color.r/255);
+  mgos_pwm_set(16,200,color.g/255);
+  mgos_pwm_set(5,200,color.b/255);
+  mgos_pwm_set(19,200,color.w/255);
 
 }
 static void animate(struct rgbw rgb1)
@@ -156,7 +156,9 @@ cblue.b=250;
 	fread(buf, 1, sizeof(buf), fp);
 	fclose(fp);
 	LOG(LL_INFO, ("%s", buf));  
-  */timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+  */
+  mgos_config_apply("{\"is_loading\":1}", true);
+  timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
  
 
   return true;
