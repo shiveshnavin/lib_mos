@@ -245,6 +245,7 @@ static bool lib_mos_init_done(bool initdone)
 	if(timer_no!=-1&&initdone)
 	{
 		mgos_clear_timer(timer_no);
+  LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
 	}
 	return success;
 }
