@@ -82,7 +82,7 @@ static bool is_firmware_loaded()
 {
 
 	bool is_loading=false;
-	int loaded=  mgos_conf_value_int("is_loading", 0);
+	int loaded=  mgos_conf_value_int("is_loading");
 if(loaded==1)
 {
 is_loading=true;
