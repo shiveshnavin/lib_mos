@@ -122,6 +122,17 @@ static void init_timer_cb(void *arg) {
 
 }
 
+static bool lib_mos_init_done(bool initdone)
+{
+
+	bool success=false;
+		
+	if(timer_no!=-1&&initdone)
+	{
+		mgos_clear_timer(timer_no);
+	}
+	return success;
+}
 bool mgos_lib_mos_init(void) {
 
   FILE *fp;
@@ -168,14 +179,3 @@ cblue.b=250;
   return true;
 }
 
-static bool lib_mos_init_done(bool initdone)
-{
-
-	bool success=false;
-		
-	if(timer_no!=-1&&initdone)
-	{
-		mgos_clear_timer(timer_no);
-	}
-	return success;
-}
