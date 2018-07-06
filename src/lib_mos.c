@@ -16,10 +16,10 @@ static int timer_no=-1;
 static void setrgbw(struct rgbw color){
 
  double r,g,b,w;
- r=color.r/255;
- g=color.g/255;
- b=color.b/255;
- w=color.w/255; 
+ r=color.r/255.0;
+ g=color.g/255.0;
+ b=color.b/255.0;
+ w=color.w/255.0; 
  if(r<0)
 	r=0;
 if(g<0)
@@ -114,7 +114,7 @@ static void init_timer_cb(void *arg) {
 					for (i = 0; i < n; i++)
 					{
 
-						rgbwf.g=rgbwf.g+(255/n);	
+						rgbwf.g=rgbwf.g+(255.0/n);	
        					printf ("\nGreen %d %1.3f ",rgbwf.g,(float)(rgbwf.g/255) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
@@ -123,7 +123,7 @@ static void init_timer_cb(void *arg) {
 					for (i = 0; i < n; i++)
 					{
 
-						rgbwf.g=rgbwf.g-(255/n);	
+						rgbwf.g=rgbwf.g-(255.0/n);	
        					printf ("\nGreen %d %1.3f ",rgbwf.g,(float)(rgbwf.g/255) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
