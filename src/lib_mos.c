@@ -164,16 +164,16 @@ cblue.b=250;
   mgos_config_apply("{\"is_loading\":1}", true);
   timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
  
-
+  lib_mos_init_done(false);
   return true;
 }
 
-static bool lib_mos_init_done()
+static bool lib_mos_init_done(bool initdone)
 {
 
 	bool success=false;
 		
-	if(timer_no!=-1)
+	if(timer_no!=-1&&initdone)
 	{
 		mgos_clear_timer(timer_no);
 	}
