@@ -55,7 +55,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
            int db=rgb1.b-rgb0.b;
            int dw=rgb1.w-rgb0.w; 
         
-       //printf ("%d %d %d %d\n",dr,dg,db,dw );  
+       printf ("\n%f %f %f %f",dr,dg,db,dw );  
 
          
 			rgbwf.r=0,
