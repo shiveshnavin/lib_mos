@@ -9,7 +9,7 @@ filesystem:
   - fs
 
 config_schema:
-  - ["is_loading", "i", false,{title: "isInitDone"}]
+  - ["is_loading", "i", 1,{title: "isInitDone"}]
 
 libs: 
   - origin: https://github.com/mongoose-os-libs/pwm 
