@@ -55,7 +55,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
            int db=rgb1.b-rgb0.b;
            int dw=rgb1.w-rgb0.w; 
         
-       printf ("%d %d %d %d\n",dr,dg,db,dw );  
+       //printf ("%d %d %d %d\n",dr,dg,db,dw );  
 
          
 			rgbwf.r=0,
@@ -115,7 +115,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g+(255/n);	
-       					printf ("%d \n",rgbwf.g );  			
+       					printf ("Green %d \n",rgbwf.g );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
@@ -124,7 +124,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g-(255/n);	
-       					printf ("%d \n",rgbwf.g );  			
+       					printf ("Green %d \n",rgbwf.g );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
