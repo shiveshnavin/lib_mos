@@ -82,6 +82,11 @@ static bool is_firmware_loaded()
 {
 
 	bool is_loading=false;
+	int loaded=  mgos_conf_value_int("is_loading", 0);
+if(loaded==1)
+{
+is_loading=true;
+}
 	/*FILE *fp;
 	char *buf = "xxxxxxxxxxxxxx"; 
 	fp=fopen("is_loading.bin", "r");
@@ -91,11 +96,11 @@ static bool is_firmware_loaded()
 	{
 		is_loading=true;
 	}
-	LOG(LL_INFO, ("%s", buf));  */
+	LOG(LL_INFO, ("%s", buf));  
 	if(count++>3)
 	{
 		is_loading=true;
-	}
+	}*/
 	return is_loading;
 }
 
