@@ -134,9 +134,9 @@ static bool lib_mos_init_done(bool initdone)
 	return success;
 }
 bool mgos_lib_mos_init(void) {
-
+/*
   FILE *fp;
-	char *buf = "xxxxxxxxxxxxxx"; 
+	char *buf = "xxxxxxxxxxxxxx"; */
   printf("Hello From Library");
 
   LOG(LL_INFO, ("%s", "Hello From Library Log"));  
