@@ -54,7 +54,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
                rgbwf.b=rgb0.b + ((db * i) / step);
                rgbwf.w=rgb0.w + ((dw * i) / step);
               
-			   printf("%d %f",rgbw.r,((dr * i) / step));
+			   printf("%d %f",rgbwf.r,((dr * i) / step));
 			   setrgbw(rgbwf);
                mgos_usleep(5);
                
