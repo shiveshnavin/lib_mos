@@ -7,7 +7,7 @@ struct rgbw{
 };
 
 static struct rgbw color,pcolor;
-static struct rgbw cred,cgreen,cblue;
+static struct rgbw cred,cgreen,cblue,czero;
 
 static int RED=1,GREEN=2,BLUE=3;
 static int curColor=-1;
@@ -21,10 +21,9 @@ static void setrgbw(struct rgbw color){
   mgos_pwm_set(19,200,color.w/255);
 
 }
-static void animate(struct rgbw rgb1)
+static void animate(struct rgbw rgb1, struct rgbw rgb0)
 {
-
-	       struct rgbw rgb0=pcolor;
+ 
  	       int dr=rgb1.r-rgb0.r;
            int dg=rgb1.g-rgb0.g;
            int db=rgb1.b-rgb0.b;
@@ -53,8 +52,7 @@ static void animate(struct rgbw rgb1)
                
             };
       
-          }
-		pcolor=rgb1;
+          } 
 }
 static bool is_firmware_loaded()
 {
@@ -82,27 +80,31 @@ static void init_timer_cb(void *arg) {
 			{
 
 			curColor=GREEN;
-			animate(cgreen);
+			animate(czero,cgreen);
+			animate(cgreen,czero);
 
 			}
 			else if(curColor==GREEN)
 			{
 
 			curColor=BLUE;
-			animate(cblue);
+			animate(czero,cblue);
+			animate(cblue,czero);
 
 			}
 			else if(curColor==BLUE){
 
 
 			curColor=RED;
-			animate(cred);
+			animate(czero,cred);
+			animate(cred,czero);
 
 			}
 			else{
 
 			curColor=RED;
-			animate(cred);
+			animate(czero,cred);
+			animate(cred,czero);
 
 			}
 
@@ -136,6 +138,7 @@ color.r=0;
 color.g=0;
 color.b=0;
 color.w=0;
+czero=color;
 
 pcolor=color;
 
