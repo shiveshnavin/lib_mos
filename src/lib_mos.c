@@ -115,7 +115,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g+(255.0/n);	
-       					printf ("\nGreen %d %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
+       					printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
@@ -124,7 +124,7 @@ static void init_timer_cb(void *arg) {
 					{
 
 						rgbwf.g=rgbwf.g-(255.0/n);	
-       					printf ("\nGreen %d %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
+       					printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
 						setrgbw(rgbwf);
 						mgos_usleep(5);
 					}
