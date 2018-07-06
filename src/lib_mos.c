@@ -28,7 +28,7 @@ static void setrgbw(struct rgbw color){
   mgos_pwm_set(19,200,color.w/255);
 
 }
-static void animate(struct rgbw rgb1, struct rgbw rgb0)
+static void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
  
  	       int dr=rgb1.r-rgb0.r;
@@ -36,7 +36,7 @@ static void animate(struct rgbw rgb1, struct rgbw rgb0)
            int db=rgb1.b-rgb0.b;
            int dw=rgb1.w-rgb0.w; 
        
-       printf ("%d %d %d %d",dr,dg,db,dw );  
+       printf ("%d %d %d %d\n",dr,dg,db,dw );  
 
           if(dr!=0 || dg!=0 || db !=0 || dw!=0  )
           {
