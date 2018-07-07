@@ -81,12 +81,18 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 static bool is_firmware_loaded()
 {
 
-	bool is_loading=false;/*
-	int loaded=  mgos_conf_value_int("is_loading");
+
+	void * desc = mgos_config_schema()
+	void * entry=mgos_conf_find_schema_entry("is_loading",desc);
+	void * conf=mgos_mjs_get_config();
+	int loaded=  mgos_conf_value_int(conf, entry);
+
 if(loaded==1)
 {
 is_loading=true;
 }
+/*
+
 	FILE *fp;
 	char *buf = "xxxxxxxxxxxxxx"; 
 	fp=fopen("is_loading.bin", "r");
@@ -96,11 +102,11 @@ is_loading=true;
 	{
 		is_loading=true;
 	}
-	LOG(LL_INFO, ("%s", buf));  */
+	LOG(LL_INFO, ("%s", buf)); 
 	if(count++>3)
 	{
 		is_loading=true;
-	}
+	} */ 
 	return is_loading;
 }
 
