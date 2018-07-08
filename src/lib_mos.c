@@ -280,7 +280,7 @@ bool mgos_lib_mos_init(void) {
 
 	if(mgos_sys_config_get_wifi_sta_enable())
 	{	
-		if(mgos_sys_config_get_wifi_sta_ssid()!=null)
+		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL)
 			{
 				struct rgbw white=czero;
 				white.w=250;
