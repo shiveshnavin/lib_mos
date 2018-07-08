@@ -115,6 +115,7 @@ static bool lib_mos_init_done(bool initdone)
 	if(timer_no!=-1&&initdone)
 	{
 		mgos_clear_timer(timer_no);
+		timer_no=-1;
   	    LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
 	}
 	
@@ -125,7 +126,7 @@ int MAX_STEP=200;
 static void init_timer_blink_rgb(void *arg) {
   
 
-	if(!is_firmware_loaded()){
+	if(!is_firmware_loaded()&&counter++<60){
 			
 			if(curColor==RED)
 			{
@@ -195,7 +196,10 @@ static void init_timer_blink_rgb(void *arg) {
 		}
 		else {
 
-				lib_mos_init_done(true);
+				lib_mos_init_done(true);	
+				struct rgbw white=czero;
+				white.w=250;
+				animate(czero,white);
 
 		}
 
@@ -224,6 +228,8 @@ static void init_timer_blink_yellow(void *arg) {
 		}
 		else {
 
+
+			
 				lib_mos_init_done(true);
 
 		}
