@@ -275,10 +275,18 @@ bool mgos_lib_mos_init(void) {
 			{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
-
+/*
 				struct rgbw white=czero;
 				white.w=250;
-				animate(czero,white);
+				animate(czero,white);*/
+				
+				struct rgbw=czero;
+				rgbw.r=mgos_sys_config_get_pre_rgbw_r();
+				rgbw.g=mgos_sys_config_get_pre_rgbw_r();
+				rgbw.b=mgos_sys_config_get_pre_rgbw_r(); 
+				rgbw.w=mgos_sys_config_get_pre_rgbw_r(); 
+				
+				animate(czero,rgbw);
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));

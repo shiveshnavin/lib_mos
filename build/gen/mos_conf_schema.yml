@@ -254,3 +254,22 @@
   - i
   - 0
   - title: isInitDone
+- - pre_rgbw
+  - o
+  - title: Previous RGBW
+- - pre_rgbw.r
+  - i
+  - 0
+  - title: Previous RGB R
+- - pre_rgbw.g
+  - i
+  - 0
+  - title: Previous RGB G
+- - pre_rgbw.b
+  - i
+  - 0
+  - title: Previous RGB B
+- - pre_rgbw.w
+  - i
+  - 255
+  - title: Previous RGB W

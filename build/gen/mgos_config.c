@@ -3,8 +3,8 @@
 #include <stddef.h>
 #include "mgos_config.h"
 
-const struct mgos_conf_entry mgos_config_schema_[98] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .num_desc = 97},
+const struct mgos_conf_entry mgos_config_schema_[103] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .num_desc = 102},
   {.type = CONF_TYPE_OBJECT, .key = "device", .num_desc = 2},
   {.type = CONF_TYPE_STRING, .key = "id", .offset = offsetof(struct mgos_config, device.id)},
   {.type = CONF_TYPE_STRING, .key = "password", .offset = offsetof(struct mgos_config, device.password)},
@@ -102,6 +102,11 @@ const struct mgos_conf_entry mgos_config_schema_[98] = {
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
   {.type = CONF_TYPE_INT, .key = "is_loading", .offset = offsetof(struct mgos_config, is_loading)},
+  {.type = CONF_TYPE_OBJECT, .key = "pre_rgbw", .num_desc = 4},
+  {.type = CONF_TYPE_INT, .key = "r", .offset = offsetof(struct mgos_config, pre_rgbw.r)},
+  {.type = CONF_TYPE_INT, .key = "g", .offset = offsetof(struct mgos_config, pre_rgbw.g)},
+  {.type = CONF_TYPE_INT, .key = "b", .offset = offsetof(struct mgos_config, pre_rgbw.b)},
+  {.type = CONF_TYPE_INT, .key = "w", .offset = offsetof(struct mgos_config, pre_rgbw.w)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -403,6 +408,21 @@ int         mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg) {
 int         mgos_config_get_is_loading(struct mgos_config *cfg) {
   return cfg->is_loading;
 }
+const struct mgos_config_pre_rgbw *mgos_config_get_pre_rgbw(struct mgos_config *cfg) {
+  return &cfg->pre_rgbw;
+}
+int         mgos_config_get_pre_rgbw_r(struct mgos_config *cfg) {
+  return cfg->pre_rgbw.r;
+}
+int         mgos_config_get_pre_rgbw_g(struct mgos_config *cfg) {
+  return cfg->pre_rgbw.g;
+}
+int         mgos_config_get_pre_rgbw_b(struct mgos_config *cfg) {
+  return cfg->pre_rgbw.b;
+}
+int         mgos_config_get_pre_rgbw_w(struct mgos_config *cfg) {
+  return cfg->pre_rgbw.w;
+}
 /* }}} */
 
 /* Setters {{{ */
@@ -663,5 +683,17 @@ void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int      
 }
 void mgos_config_set_is_loading(struct mgos_config *cfg, int         val) {
   cfg->is_loading = val;
+}
+void mgos_config_set_pre_rgbw_r(struct mgos_config *cfg, int         val) {
+  cfg->pre_rgbw.r = val;
+}
+void mgos_config_set_pre_rgbw_g(struct mgos_config *cfg, int         val) {
+  cfg->pre_rgbw.g = val;
+}
+void mgos_config_set_pre_rgbw_b(struct mgos_config *cfg, int         val) {
+  cfg->pre_rgbw.b = val;
+}
+void mgos_config_set_pre_rgbw_w(struct mgos_config *cfg, int         val) {
+  cfg->pre_rgbw.w = val;
 }
 /* }}} */

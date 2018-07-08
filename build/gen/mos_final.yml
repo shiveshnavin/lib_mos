@@ -276,6 +276,25 @@ config_schema:
   - i
   - 0
   - title: isInitDone
+- - pre_rgbw
+  - o
+  - title: Previous RGBW
+- - pre_rgbw.r
+  - i
+  - 0
+  - title: Previous RGB R
+- - pre_rgbw.g
+  - i
+  - 0
+  - title: Previous RGB G
+- - pre_rgbw.b
+  - i
+  - 0
+  - title: Previous RGB B
+- - pre_rgbw.w
+  - i
+  - 255
+  - title: Previous RGB W
 build_vars:
   ESP_IDF_EXTRA_COMPONENTS: ' bt'
   ESP_IDF_SDKCONFIG_OPTS: |2

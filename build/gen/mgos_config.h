@@ -135,6 +135,13 @@ struct mgos_config_wifi {
   int sta_connect_timeout;
 };
 
+struct mgos_config_pre_rgbw {
+  int r;
+  int g;
+  int b;
+  int w;
+};
+
 struct mgos_config {
   struct mgos_config_device device;
   struct mgos_config_debug debug;
@@ -143,6 +150,7 @@ struct mgos_config {
   struct mgos_config_bt bt;
   struct mgos_config_wifi wifi;
   int is_loading;
+  struct mgos_config_pre_rgbw pre_rgbw;
 };
 
 
@@ -246,6 +254,11 @@ const char *mgos_config_get_wifi_sta2_dhcp_hostname(struct mgos_config *cfg);
 int         mgos_config_get_wifi_sta_cfg_idx(struct mgos_config *cfg);
 int         mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg);
 int         mgos_config_get_is_loading(struct mgos_config *cfg);
+const struct mgos_config_pre_rgbw *mgos_config_get_pre_rgbw(struct mgos_config *cfg);
+int         mgos_config_get_pre_rgbw_r(struct mgos_config *cfg);
+int         mgos_config_get_pre_rgbw_g(struct mgos_config *cfg);
+int         mgos_config_get_pre_rgbw_b(struct mgos_config *cfg);
+int         mgos_config_get_pre_rgbw_w(struct mgos_config *cfg);
 
 void mgos_config_set_device_id(struct mgos_config *cfg, const char *val);
 void mgos_config_set_device_password(struct mgos_config *cfg, const char *val);
@@ -333,6 +346,10 @@ void mgos_config_set_wifi_sta2_dhcp_hostname(struct mgos_config *cfg, const char
 void mgos_config_set_wifi_sta_cfg_idx(struct mgos_config *cfg, int         val);
 void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int         val);
 void mgos_config_set_is_loading(struct mgos_config *cfg, int         val);
+void mgos_config_set_pre_rgbw_r(struct mgos_config *cfg, int         val);
+void mgos_config_set_pre_rgbw_g(struct mgos_config *cfg, int         val);
+void mgos_config_set_pre_rgbw_b(struct mgos_config *cfg, int         val);
+void mgos_config_set_pre_rgbw_w(struct mgos_config *cfg, int         val);
 /* }}} */
 
 extern struct mgos_config mgos_sys_config;
@@ -437,6 +454,11 @@ static inline const char *mgos_sys_config_get_wifi_sta2_dhcp_hostname(void) { re
 static inline int         mgos_sys_config_get_wifi_sta_cfg_idx(void) { return mgos_config_get_wifi_sta_cfg_idx(&mgos_sys_config); }
 static inline int         mgos_sys_config_get_wifi_sta_connect_timeout(void) { return mgos_config_get_wifi_sta_connect_timeout(&mgos_sys_config); }
 static inline int         mgos_sys_config_get_is_loading(void) { return mgos_config_get_is_loading(&mgos_sys_config); }
+static inline const struct mgos_config_pre_rgbw *mgos_sys_config_get_pre_rgbw(void) { return mgos_config_get_pre_rgbw(&mgos_sys_config); }
+static inline int         mgos_sys_config_get_pre_rgbw_r(void) { return mgos_config_get_pre_rgbw_r(&mgos_sys_config); }
+static inline int         mgos_sys_config_get_pre_rgbw_g(void) { return mgos_config_get_pre_rgbw_g(&mgos_sys_config); }
+static inline int         mgos_sys_config_get_pre_rgbw_b(void) { return mgos_config_get_pre_rgbw_b(&mgos_sys_config); }
+static inline int         mgos_sys_config_get_pre_rgbw_w(void) { return mgos_config_get_pre_rgbw_w(&mgos_sys_config); }
 
 static inline void mgos_sys_config_set_device_id(const char *val) { mgos_config_set_device_id(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_device_password(const char *val) { mgos_config_set_device_password(&mgos_sys_config, val); }
@@ -524,6 +546,10 @@ static inline void mgos_sys_config_set_wifi_sta2_dhcp_hostname(const char *val) 
 static inline void mgos_sys_config_set_wifi_sta_cfg_idx(int         val) { mgos_config_set_wifi_sta_cfg_idx(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_wifi_sta_connect_timeout(int         val) { mgos_config_set_wifi_sta_connect_timeout(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_is_loading(int         val) { mgos_config_set_is_loading(&mgos_sys_config, val); }
+static inline void mgos_sys_config_set_pre_rgbw_r(int         val) { mgos_config_set_pre_rgbw_r(&mgos_sys_config, val); }
+static inline void mgos_sys_config_set_pre_rgbw_g(int         val) { mgos_config_set_pre_rgbw_g(&mgos_sys_config, val); }
+static inline void mgos_sys_config_set_pre_rgbw_b(int         val) { mgos_config_set_pre_rgbw_b(&mgos_sys_config, val); }
+static inline void mgos_sys_config_set_pre_rgbw_w(int         val) { mgos_config_set_pre_rgbw_w(&mgos_sys_config, val); }
 
 
 #ifdef __cplusplus

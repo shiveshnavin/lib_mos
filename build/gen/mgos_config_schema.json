@@ -95,5 +95,10 @@
   ["wifi.sta2.dhcp_hostname", "s", {"title": "Host name to include in DHCP requests"}],
   ["wifi.sta_cfg_idx", "i", {"title": "WiFi station config index to use, 0, 1 or 2"}],
   ["wifi.sta_connect_timeout", "i", {"title": "Timeout for connection, seconds"}],
-  ["is_loading", "i", {"title": "isInitDone"}]
+  ["is_loading", "i", {"title": "isInitDone"}],
+  ["pre_rgbw", "o", {"title": "Previous RGBW"}],
+  ["pre_rgbw.r", "i", {"title": "Previous RGB R"}],
+  ["pre_rgbw.g", "i", {"title": "Previous RGB G"}],
+  ["pre_rgbw.b", "i", {"title": "Previous RGB B"}],
+  ["pre_rgbw.w", "i", {"title": "Previous RGB W"}]
 ]
