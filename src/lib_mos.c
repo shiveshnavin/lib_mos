@@ -40,7 +40,7 @@ static void setrgbw(struct rgbw color){
 			if(w>255)
 				w=255;
 			w=g;
-			printf ("\n%f %f %f %f",r,g,b,w );  
+			//printf ("\n%f %f %f %f",r,g,b,w );  
 
 			mgos_pwm_set(4,200,r);
 			mgos_pwm_set(16,200,g);
@@ -280,8 +280,12 @@ bool mgos_lib_mos_init(void) {
 
 	if(mgos_sys_config_get_wifi_sta_enable())
 	{	
+		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
 		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL)
 			{
+				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is"));
+				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
+
 				struct rgbw white=czero;
 				white.w=250;
 				animate(czero,white);
