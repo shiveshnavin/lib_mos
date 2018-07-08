@@ -108,7 +108,7 @@ int MAX_STEP=200;
 int counter=0;
 static void init_timer_cb(void *arg) {
   
-  if(counter++==0)
+  if(counter++>3)
   {
 
 	mgos_config_apply("{\"is_loading\":1}", true);
@@ -193,7 +193,14 @@ static void init_timer_cb(void *arg) {
 
 
 }
-
+void blinkb()
+{
+	//blink rgb
+}
+void blinkw()
+{
+	//blink yellow
+} 
 bool mgos_lib_mos_init(void) {
   printf("Hello From Library");
 
