@@ -277,7 +277,7 @@ bool mgos_lib_mos_init(void) {
 	*/
 
 
-json_fprintf("settings.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
+json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
 json_prettify_file("loading.json"); 
 
 
@@ -297,10 +297,14 @@ json_prettify_file("loading.json");
 				struct rgbw white=czero;
 				white.w=250;
 				animate(czero,white);*/  
+				int r,g,b,w;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &(led.r),&(led.g),&(led.b)  );
+				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
 				struct rgbw rgbww=led; 
+				rgbww.r=r;
+				rgbww.g=g;
+				rgbww.b=b;
 				free(content);
 				animate(czero,rgbww);
 			}
