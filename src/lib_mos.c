@@ -282,9 +282,9 @@ bool mgos_lib_mos_init(void) {
 				
 				struct rgbw=czero;
 				rgbw.r=mgos_sys_config_get_pre_rgbw_r();
-				rgbw.g=mgos_sys_config_get_pre_rgbw_r();
-				rgbw.b=mgos_sys_config_get_pre_rgbw_r(); 
-				rgbw.w=mgos_sys_config_get_pre_rgbw_r(); 
+				rgbw.g=mgos_sys_config_get_pre_rgbw_g();
+				rgbw.b=mgos_sys_config_get_pre_rgbw_b(); 
+				rgbw.w=mgos_sys_config_get_pre_rgbw_w(); 
 				
 				animate(czero,rgbw);
 			}
