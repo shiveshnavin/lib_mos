@@ -105,8 +105,15 @@ static bool lib_mos_init_done(bool initdone)
 	return success;
 }
 int MAX_STEP=200;
+int counter=0;
 static void init_timer_cb(void *arg) {
   
+  if(counter++==0)
+  {
+
+	mgos_config_apply("{\"is_loading\":1}", true);
+	printf("Now setting is_loading=1");
+  }
 
 	if(!is_firmware_loaded()){
 			
@@ -188,9 +195,6 @@ static void init_timer_cb(void *arg) {
 }
 
 bool mgos_lib_mos_init(void) {
-/*
-  FILE *fp;
-	char *buf = "xxxxxxxxxxxxxx"; */
   printf("Hello From Library");
 
   LOG(LL_INFO, ("%s", "Hello From Library Log"));  
@@ -200,36 +204,35 @@ bool mgos_lib_mos_init(void) {
   mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
 
-color.r=0;
-color.g=0;
-color.b=0;
-color.w=0;
-czero=color;
+	color.r=0;
+	color.g=0;
+	color.b=0;
+	color.w=0;
+	czero=color;
 
-pcolor=color;
+	pcolor=color;
 
-cred=color;
-cred.r=250;
+	cred=color;
+	cred.r=250;
 
-cgreen=color;
-cgreen.g=250;
+	cgreen=color;
+	cgreen.g=250;
 
-cblue=color;
-cblue.b=250;
+	cblue=color;
+	cblue.b=250;
 
-	/*fp=fopen("is_loading.bin", "w");
-	fwrite("still loading" , 1 , sizeof("still loading") , fp );
-	fclose(fp);
- 
-	fp=fopen("is_loading.bin", "r");
-	fread(buf, 1, sizeof(buf), fp);
-	fclose(fp);
-	LOG(LL_INFO, ("%s", buf));  
-  */
-  mgos_config_apply("{\"is_loading\":1}", true);
-  timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
- 
-  lib_mos_init_done(false);
-  return true;
+		/*fp=fopen("is_loading.bin", "w");
+		fwrite("still loading" , 1 , sizeof("still loading") , fp );
+		fclose(fp);
+	
+		fp=fopen("is_loading.bin", "r");
+		fread(buf, 1, sizeof(buf), fp);
+		fclose(fp);
+		LOG(LL_INFO, ("%s", buf));  
+	*/
+	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+	
+	lib_mos_init_done(false);
+	return true;
 }
 
