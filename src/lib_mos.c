@@ -14,7 +14,7 @@ static int curColor=-1;
 static int timer_no=-1;
 static int counter=0;
 static int STEP=100;
-static int DELAY=2500;
+static int DELAY=2500; 
  
 static void setrgbw(struct rgbw color){
 
@@ -280,11 +280,19 @@ bool mgos_lib_mos_init(void) {
 
 	if(mgos_sys_config_get_wifi_sta_enable())
 	{	
-		blinkw();
+		if(mgos_sys_config_get_wifi_sta_ssid()!=null)
+			{
+				struct rgbw white=czero;
+				white.w=250;
+				animate(czero,white);
+			}
+			else{
+				blinkw();
+			}
 	}
 	else if(mgos_sys_config_get_bt_enable())
 	{
-		blinkb();
+		blinkw();
 	}
 	
 	
