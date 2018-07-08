@@ -84,6 +84,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 static bool is_firmware_loaded()
 {
 	int loaded=-1;
+	bool is_loading=false;
 	/*if(counter++>3)
 	{
 
@@ -91,7 +92,6 @@ static bool is_firmware_loaded()
 		printf("Now setting is_loading=1");
 	}
 
-	bool is_loading=false;
 	char *content = json_fread("is_loading.json");
 	LOG(LL_INFO, ("%s", content));
 	json_scanf(content, strlen(content), "{loading: %d}",  &loaded  );
