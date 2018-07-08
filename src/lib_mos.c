@@ -16,6 +16,7 @@ static int counter=0;
 static int STEP=100;
 static int DELAY=2500; 
  
+struct my_config { int a; char *b; } c = { .a = 0, .b = NULL };
 struct user_config { int count; struct rgbw led; } ;
 static void setrgbw(struct rgbw color){
 
@@ -87,7 +88,7 @@ static bool is_firmware_loaded()
 
 		mgos_config_apply("{\"is_loading\":1}", true);
 		printf("Now setting is_loading=1");
-	}*/
+	}
 
 	bool is_loading=false;
 	char *content = json_fread("is_loading.json");
@@ -97,7 +98,13 @@ static bool is_firmware_loaded()
 	LOG(LL_INFO, ("%d", loaded));
 	free(content);
 	LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
-	LOG(LL_INFO, ("%d",loaded));
+	LOG(LL_INFO, ("%d",loaded));*/
+
+
+char *content = json_fread("settings.json");
+json_scanf(content, strlen(content), "{a: %d, b: %Q}", &c.a, &c.b);
+ LOG(LL_INFO, ("%d", c.a));  
+
 	if(loaded==1)
 	{
 		is_loading=true;
@@ -274,6 +281,14 @@ bool mgos_lib_mos_init(void) {
 		LOG(LL_INFO, ("%s", buf));  
 	*/
 
+
+json_fprintf("settings.json", "{ a: %d, b: %Q }", 123, "string_value");
+json_prettify_file("settings.json"); 
+
+
+
+
+
 	if(mgos_sys_config_get_wifi_sta_enable() || mgos_sys_config_get_wifi_sta1_enable() || mgos_sys_config_get_wifi_sta2_enable())
 	{	
 		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
@@ -291,7 +306,7 @@ bool mgos_lib_mos_init(void) {
 				conf.count=0;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led: {r: %d , g: %d , b:%d }}", &conf.count,  &conf.led.r ,&conf.led.g ,&conf.led.b  );
+				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &conf.count,  &conf.led.r ,&conf.led.g ,&conf.led.b  );
 				struct rgbw rgbww=conf.led; 
 				free(content);
 				animate(czero,rgbww);
