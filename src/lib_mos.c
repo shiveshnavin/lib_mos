@@ -95,7 +95,7 @@ LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
 	if(loaded==1)
 	{
 		is_loading=true;
-		 
+	}
 	else{
 		
 	}
