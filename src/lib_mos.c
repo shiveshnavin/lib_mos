@@ -12,6 +12,7 @@ static struct rgbw cred,cgreen,cblue,czero;
 static int RED=1,GREEN=2,BLUE=3;
 static int curColor=-1;
 static int timer_no=-1;
+static int counter=0;
  
 static void setrgbw(struct rgbw color){
 
@@ -111,7 +112,6 @@ static bool lib_mos_init_done(bool initdone)
 	return success;
 }
 int MAX_STEP=200;
-int counter=0;
 static void init_timer_cb(void *arg) {
   
 
