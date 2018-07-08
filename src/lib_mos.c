@@ -280,13 +280,13 @@ bool mgos_lib_mos_init(void) {
 				white.w=250;
 				animate(czero,white);*/
 				
-				struct rgbw=czero;
-				rgbw.r=mgos_sys_config_get_pre_rgbw_r();
-				rgbw.g=mgos_sys_config_get_pre_rgbw_g();
-				rgbw.b=mgos_sys_config_get_pre_rgbw_b(); 
-				rgbw.w=mgos_sys_config_get_pre_rgbw_w(); 
+				struct rgbw rgbww=czero;
+				rgbww.r=mgos_sys_config_get_pre_rgbw_r();
+				rgbww.g=mgos_sys_config_get_pre_rgbw_g();
+				rgbww.b=mgos_sys_config_get_pre_rgbw_b(); 
+				rgbww.w=mgos_sys_config_get_pre_rgbw_w(); 
 				
-				animate(czero,rgbw);
+				animate(czero,rgbww);
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
