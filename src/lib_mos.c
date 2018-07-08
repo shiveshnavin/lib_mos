@@ -63,10 +63,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
        //printf ("\n%f %f %f %f",dr,dg,db,dw );  
 
          
-			rgbwf.r=0,
-			rgbwf.g=0;
-			rgbwf.b=0;
-			rgbwf.w=0;
+			rgbwf=czero;
 			 
             for(i=0;i<=step;i++)
             {
@@ -93,14 +90,14 @@ static bool is_firmware_loaded()
 
 	bool is_loading=false;
 	int loaded=  mgos_sys_config_get_is_loading();
-
+LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
+ LOG(LL_INFO, ("%d",loaded));
 	if(loaded==1)
 	{
 		is_loading=true;
-		LOG(LL_INFO, ("%s", "lib_mos: Yes")); 
-	}
+		 
 	else{
-		LOG(LL_INFO, ("%s", "lib_mos: No")); 
+		
 	}
 	
 	  
@@ -132,10 +129,7 @@ static void init_timer_blink_rgb(void *arg) {
 			{
  
 					struct rgbw rgbwi,rgbwf;
-					rgbwf.r=0;
-					rgbwf.g=0;
-					rgbwf.b=0;
-					rgbwf.w=0;
+					rgbwf=czero;
 					rgbwi=rgbwf;
 					rgbwf.g=250;
 					animate(rgbwi,rgbwf);
@@ -150,10 +144,7 @@ static void init_timer_blink_rgb(void *arg) {
 
 
 					struct rgbw rgbwi,rgbwf;
-					rgbwf.r=0;
-					rgbwf.g=0;
-					rgbwf.b=0;
-					rgbwf.w=0;
+					rgbwf=czero;
 					rgbwi=rgbwf;
 					rgbwf.b=250;
 					animate(rgbwi,rgbwf);
@@ -166,10 +157,7 @@ static void init_timer_blink_rgb(void *arg) {
 
 
 						struct rgbw rgbwi,rgbwf;
-					rgbwf.r=0;
-					rgbwf.g=0;
-					rgbwf.b=0;
-					rgbwf.w=0;
+					rgbwf=czero;
 					rgbwi=rgbwf;
 					rgbwf.r=250;
 					animate(rgbwi,rgbwf);
@@ -180,10 +168,7 @@ static void init_timer_blink_rgb(void *arg) {
 			else{
 
 					struct rgbw rgbwi,rgbwf;
-					rgbwf.r=0;
-					rgbwf.g=0;
-					rgbwf.b=0;
-					rgbwf.w=0;
+					rgbwf=czero;
 					rgbwi=rgbwf;
 					rgbwf.r=250;
 					animate(rgbwi,rgbwf);
@@ -214,10 +199,7 @@ static void init_timer_blink_yellow(void *arg) {
 			
 			 
 					struct rgbw rgbwi,rgbwf;
-					rgbwf.r=0;
-					rgbwf.g=0;
-					rgbwf.b=0;
-					rgbwf.w=0;
+					rgbwf=czero;
 					rgbwi=rgbwf;
 					rgbwf.r=250;
 					rgbwf.g=250;
