@@ -14,7 +14,7 @@ static int curColor=-1;
 static int timer_no=-1;
 static int counter=0;
 static int STEP=100;
-static int DELAY=25000;
+static int DELAY=2500;
  
 static void setrgbw(struct rgbw color){
 
