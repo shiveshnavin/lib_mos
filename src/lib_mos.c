@@ -291,11 +291,13 @@ bool mgos_lib_mos_init(void) {
 				animate(czero,white);
 			}
 			else{
+				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
 				blinkw();
 			}
 	}
 	else if(mgos_sys_config_get_bt_enable())
 	{
+		LOG(LL_INFO, ("%s", "lib_mos:wifi is off and bt is enabled"));
 		blinkw();
 	}
 	
