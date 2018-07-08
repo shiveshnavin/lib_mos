@@ -16,6 +16,7 @@ static int counter=0;
 static int STEP=100;
 static int DELAY=2500; 
  
+struct user_config { int count; struct rgbw led; } ;
 static void setrgbw(struct rgbw color){
 
 			double r,g,b,w;
@@ -273,19 +274,20 @@ bool mgos_lib_mos_init(void) {
 		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
 		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL || mgos_sys_config_get_wifi_sta1_ssid()!=NULL || mgos_sys_config_get_wifi_sta2_ssid()!=NULL )
 			{
+				struct user_config conf;
+				struct rgbw led=czero;
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
 /*
 				struct rgbw white=czero;
 				white.w=250;
 				animate(czero,white);*/
-				
-				struct rgbw rgbww=czero;
-				rgbww.r=mgos_sys_config_get_pre_rgbw_r();
-				rgbww.g=mgos_sys_config_get_pre_rgbw_g();
-				rgbww.b=mgos_sys_config_get_pre_rgbw_b(); 
-				rgbww.w=mgos_sys_config_get_pre_rgbw_w(); 
-				
+				conf.led=led;
+				conf.count=0;
+				char *content = json_fread("userData.json");
+				json_scanf(content, strlen(content), "{count: %d, led: {r: %d , g: %d , b:%d }}", &conf.count,  &conf.led.r ,&conf.led.g ,&conf.led.b  );
+				struct rgbw rgbww=conf.led; 
+
 				animate(czero,rgbww);
 			}
 			else{
