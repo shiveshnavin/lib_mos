@@ -312,11 +312,12 @@ json_prettify_file("loading.json");
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
 				blinkw();
 			}
-	}	else{
-				LOG(LL_INFO, ("%s", "lib_mos:wifi is disabled"));
-				blinkw();
-			}
-	 
+	}
+	else if(mgos_sys_config_get_bt_enable())
+	{
+		LOG(LL_INFO, ("%s", "lib_mos:wifi is off and bt is enabled"));
+		blinkb();
+	}
 	
 	
 	return true;
