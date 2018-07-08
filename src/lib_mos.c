@@ -101,19 +101,14 @@ static bool is_firmware_loaded()
 	LOG(LL_INFO, ("%d",loaded));*/
 
 
-char *content = json_fread("settings.json");
-json_scanf(content, strlen(content), "{a: %d, b: %Q}", &c.a, &c.b);
- LOG(LL_INFO, ("%d", c.a));  
-
-	if(loaded==1)
+	char *content = json_fread("loading.json");
+	json_scanf(content, strlen(content), "{a: %d, b: %Q}", &c.a, &c.b);
+	LOG(LL_INFO, ("%d", c.a));  
+	if(c.a==111)
 	{
 		is_loading=true;
 	}
-	else{
-		
-	}
-	
-	  
+ 
 	return is_loading;
 }
 
@@ -282,8 +277,8 @@ bool mgos_lib_mos_init(void) {
 	*/
 
 
-json_fprintf("settings.json", "{ a: %d, b: %Q }", 123, "string_value");
-json_prettify_file("settings.json"); 
+json_fprintf("settings.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
+json_prettify_file("loading.json"); 
 
 
 
@@ -293,21 +288,19 @@ json_prettify_file("settings.json");
 	{	
 		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
 		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL || mgos_sys_config_get_wifi_sta1_ssid()!=NULL || mgos_sys_config_get_wifi_sta2_ssid()!=NULL )
-			{
-				struct user_config conf;
+			{ 
+				int count;
 				struct rgbw led=czero;
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
 /*
 				struct rgbw white=czero;
 				white.w=250;
-				animate(czero,white);*/
-				conf.led=led;
-				conf.count=0;
+				animate(czero,white);*/  
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &conf.count,  &conf.led.r ,&conf.led.g ,&conf.led.b  );
-				struct rgbw rgbww=conf.led; 
+				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &(led.r),&(led.g),&(led.b)  );
+				struct rgbw rgbww=led; 
 				free(content);
 				animate(czero,rgbww);
 			}
