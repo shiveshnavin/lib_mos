@@ -83,12 +83,12 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 }
 static bool is_firmware_loaded()
 {
-	if(counter++>3)
+	/*if(counter++>3)
 	{
 
 		mgos_config_apply("{\"is_loading\":1}", true);
 		printf("Now setting is_loading=1");
-	}
+	}*/
 
 	bool is_loading=false;
 	int loaded=  mgos_sys_config_get_is_loading();
