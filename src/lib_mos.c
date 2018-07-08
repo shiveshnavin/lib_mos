@@ -96,6 +96,10 @@ static bool is_firmware_loaded()
 	if(loaded==1)
 	{
 		is_loading=true;
+		LOG(LL_INFO, ("%s", "lib_mos: Yes")); 
+	}
+	else{
+		LOG(LL_INFO, ("%s", "lib_mos: No")); 
 	}
 	
 	  
@@ -113,14 +117,11 @@ static bool lib_mos_init_done(bool initdone)
   	    LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
 	}
 	
-	if(!initdone)
-	{
-		mgos_config_apply("{\"is_loading\":0}", true);
-	}
+	 
 	return success;
 }
 int MAX_STEP=200;
-static void init_timer_cb(void *arg) {
+static void init_timer_blink_rgb(void *arg) {
   
 
 	if(!is_firmware_loaded()){
@@ -201,7 +202,7 @@ static void init_timer_cb(void *arg) {
 
 
 }
-static void init_timer_cb_2(void *arg) {
+static void init_timer_blink_yellow(void *arg) {
    
 
 	if(!is_firmware_loaded()){
@@ -233,12 +234,12 @@ static void init_timer_cb_2(void *arg) {
 void blinkb()
 {
 	//blink rgb
-	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_blink_rgb, NULL);
 }
 void blinkw()
 {
 	//blink yellow
-	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb_2, NULL);
+	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_blink_yellow, NULL);
 } 
 bool mgos_lib_mos_init(void) {
   printf("Hello From Library");
@@ -266,7 +267,7 @@ bool mgos_lib_mos_init(void) {
 
 	cblue=color;
 	cblue.b=250;
-	lib_mos_init_done(false);
+	mgos_config_apply("{\"is_loading\":0}", true);
 
 		/*fp=fopen("is_loading.bin", "w");
 		fwrite("still loading" , 1 , sizeof("still loading") , fp );
@@ -278,12 +279,12 @@ bool mgos_lib_mos_init(void) {
 		LOG(LL_INFO, ("%s", buf));  
 	*/
 
-	if(mgos_sys_config_get_wifi_sta_enable())
+	if(mgos_sys_config_get_wifi_sta_enable() || mgos_sys_config_get_wifi_sta1_enable() || mgos_sys_config_get_wifi_sta2_enable())
 	{	
 		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
-		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL)
+		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL || mgos_sys_config_get_wifi_sta1_ssid()!=NULL || mgos_sys_config_get_wifi_sta2_ssid()!=NULL )
 			{
-				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is"));
+				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
 
 				struct rgbw white=czero;
@@ -298,7 +299,7 @@ bool mgos_lib_mos_init(void) {
 	else if(mgos_sys_config_get_bt_enable())
 	{
 		LOG(LL_INFO, ("%s", "lib_mos:wifi is off and bt is enabled"));
-		blinkw();
+		blinkb();
 	}
 	
 	
