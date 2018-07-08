@@ -95,6 +95,7 @@ static bool is_firmware_loaded()
 	{
 		is_loading=true;
 	}
+	
 	  
 	return is_loading;
 }
@@ -108,6 +109,11 @@ static bool lib_mos_init_done(bool initdone)
 	{
 		mgos_clear_timer(timer_no);
   	    LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
+	}
+	
+	if(!initdone)
+	{
+		mgos_config_apply("{\"is_loading\":0}", true);
 	}
 	return success;
 }
@@ -258,6 +264,7 @@ bool mgos_lib_mos_init(void) {
 
 	cblue=color;
 	cblue.b=250;
+	lib_mos_init_done(false);
 
 		/*fp=fopen("is_loading.bin", "w");
 		fwrite("still loading" , 1 , sizeof("still loading") , fp );
@@ -279,7 +286,6 @@ bool mgos_lib_mos_init(void) {
 	}
 	
 	
-	lib_mos_init_done(false);
 	return true;
 }
 
