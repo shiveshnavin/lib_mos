@@ -13,6 +13,8 @@ static int RED=1,GREEN=2,BLUE=3;
 static int curColor=-1;
 static int timer_no=-1;
 static int counter=0;
+static int STEP=100;
+static int DELAY=25000;
  
 static void setrgbw(struct rgbw color){
 
@@ -37,7 +39,7 @@ static void setrgbw(struct rgbw color){
 				b=255;
 			if(w>255)
 				w=255;
-			//w=g;
+			w=g;
 			printf ("\n%f %f %f %f",r,g,b,w );  
 
 			mgos_pwm_set(4,200,r);
@@ -50,7 +52,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
             int i=0;
             struct rgbw rgbwf;
-			int step=200;
+			int step=STEP;
  
  	       int dr=rgb1.r-rgb0.r;
            int dg=rgb1.g-rgb0.g;
@@ -74,7 +76,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
               
 			  // printf("%d %f",rgbwf.r,((dr * i) / step));
 			   setrgbw(rgbwf);
-               mgos_usleep(50000);
+               mgos_usleep(DELAY);
                
             };
        
