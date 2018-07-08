@@ -90,9 +90,14 @@ static bool is_firmware_loaded()
 	}*/
 
 	bool is_loading=false;
-	int loaded=  mgos_sys_config_get_is_loading();
-LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
- LOG(LL_INFO, ("%d",loaded));
+	char *content = json_fread("is_loading.json");
+	LOG(LL_INFO, ("%s", content));
+	int loaded=-1;
+	json_scanf(content, strlen(content), "{loading: %d}",  &loaded  );
+	LOG(LL_INFO, ("%d", loaded));
+	free(content);
+	LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
+	LOG(LL_INFO, ("%d",loaded));
 	if(loaded==1)
 	{
 		is_loading=true;
