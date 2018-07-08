@@ -42,7 +42,7 @@ static void setrgbw(struct rgbw color){
 			if(w>255)
 				w=255;
 			if(w==0)
-				w=g;
+			;//	w=g;
 			//printf ("\n%f %f %f %f",r,g,b,w );  
 
 			mgos_pwm_set(4,200,r);
