@@ -41,8 +41,8 @@ static void setrgbw(struct rgbw color){
 				b=255;
 			if(w>255)
 				w=255;
-			if(w==0)
-			;//	w=g;
+			//if(w==0)
+			//	w=g;
 			//printf ("\n%f %f %f %f",r,g,b,w );  
 
 			mgos_pwm_set(4,200,r);
