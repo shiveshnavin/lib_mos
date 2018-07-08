@@ -49,7 +49,7 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
             int i=0;
             struct rgbw rgbwf;
-			int step=10;
+			int step=200;
  
  	       int dr=rgb1.r-rgb0.r;
            int dg=rgb1.g-rgb0.g;
@@ -73,13 +73,19 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
               
 			  // printf("%d %f",rgbwf.r,((dr * i) / step));
 			   setrgbw(rgbwf);
-               mgos_usleep(5);
+               mgos_usleep(50000);
                
             };
        
 }
 static bool is_firmware_loaded()
 {
+	if(counter++>3)
+	{
+
+		mgos_config_apply("{\"is_loading\":1}", true);
+		printf("Now setting is_loading=1");
+	}
 
 	bool is_loading=false;
 	int loaded=  mgos_sys_config_get_is_loading();
@@ -108,12 +114,6 @@ int MAX_STEP=200;
 int counter=0;
 static void init_timer_cb(void *arg) {
   
-  if(counter++>3)
-  {
-
-	mgos_config_apply("{\"is_loading\":1}", true);
-	printf("Now setting is_loading=1");
-  }
 
 	if(!is_firmware_loaded()){
 			
@@ -193,13 +193,44 @@ static void init_timer_cb(void *arg) {
 
 
 }
+static void init_timer_cb_2(void *arg) {
+   
+
+	if(!is_firmware_loaded()){
+			
+			 
+					struct rgbw rgbwi,rgbwf;
+					rgbwf.r=0;
+					rgbwf.g=0;
+					rgbwf.b=0;
+					rgbwf.w=0;
+					rgbwi=rgbwf;
+					rgbwf.r=250;
+					rgbwf.g=250;
+					animate(rgbwi,rgbwf);
+					animate(rgbwf,rgbwi);
+			 
+ 
+		}
+		else {
+
+				lib_mos_init_done(true);
+
+		}
+
+  LOG(LL_INFO, ("%s", "Changing color"));  
+
+
+}
 void blinkb()
 {
 	//blink rgb
+	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
 }
 void blinkw()
 {
 	//blink yellow
+	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb_2, NULL);
 } 
 bool mgos_lib_mos_init(void) {
   printf("Hello From Library");
@@ -237,7 +268,16 @@ bool mgos_lib_mos_init(void) {
 		fclose(fp);
 		LOG(LL_INFO, ("%s", buf));  
 	*/
-	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_cb, NULL);
+
+	if(mgos_sys_config_get_wifi_sta_enable())
+	{	
+		blinkw();
+	}
+	else if(mgos_sys_config_get_bt_enable())
+	{
+		blinkb();
+	}
+	
 	
 	lib_mos_init_done(false);
 	return true;
