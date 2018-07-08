@@ -15,34 +15,34 @@ static int timer_no=-1;
  
 static void setrgbw(struct rgbw color){
 
- double r,g,b,w;
- r=color.r/255.0;
- g=color.g/255.0;
- b=color.b/255.0;
- w=color.w/255.0; 
- if(r<0)
-	r=0;
-if(g<0)
-	g=0;
-if(b<0)
-	b=0;
-if(w<0)
-	w=0;
-if(r>255)
-	r=255;
-if(g>255)
-	g=255;
-if(b>255)
-	b=255;
-if(w>255)
-	w=255;
-//w=g;
- printf ("\n%f %f %f %f",r,g,b,w );  
+			double r,g,b,w;
+			r=color.r/255.0;
+			g=color.g/255.0;
+			b=color.b/255.0;
+			w=color.w/255.0; 
+			if(r<0)
+				r=0;
+			if(g<0)
+				g=0;
+			if(b<0)
+				b=0;
+			if(w<0)
+				w=0;
+			if(r>255)
+				r=255;
+			if(g>255)
+				g=255;
+			if(b>255)
+				b=255;
+			if(w>255)
+				w=255;
+			//w=g;
+			printf ("\n%f %f %f %f",r,g,b,w );  
 
-  mgos_pwm_set(4,200,r);
-  mgos_pwm_set(16,200,g);
-  mgos_pwm_set(5,200,b);
-  mgos_pwm_set(19,200,w);
+			mgos_pwm_set(4,200,r);
+			mgos_pwm_set(16,200,g);
+			mgos_pwm_set(5,200,b);
+			mgos_pwm_set(19,200,w);
 
 }
 static void animate(struct rgbw rgb0, struct rgbw rgb1)
@@ -81,32 +81,14 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
 static bool is_firmware_loaded()
 {
 
+	bool is_loading=false;
+	int loaded=  mgos_sys_config_get_is_loading();
 
-	void * desc = mgos_config_schema()
-	void * entry=mgos_conf_find_schema_entry("is_loading",desc);
-	void * conf=mgos_mjs_get_config();
-	int loaded=  mgos_conf_value_int(conf, entry);
-
-if(loaded==1)
-{
-is_loading=true;
-}
-/*
-
-	FILE *fp;
-	char *buf = "xxxxxxxxxxxxxx"; 
-	fp=fopen("is_loading.bin", "r");
-	fread(buf, 1, sizeof(buf), fp);
-	fclose(fp);
-	if(buf[0]=='s')
+	if(loaded==1)
 	{
 		is_loading=true;
 	}
-	LOG(LL_INFO, ("%s", buf)); 
-	if(count++>3)
-	{
-		is_loading=true;
-	} */ 
+	  
 	return is_loading;
 }
 
@@ -118,7 +100,7 @@ static bool lib_mos_init_done(bool initdone)
 	if(timer_no!=-1&&initdone)
 	{
 		mgos_clear_timer(timer_no);
-  LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
+  	    LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
 	}
 	return success;
 }
@@ -130,32 +112,16 @@ static void init_timer_cb(void *arg) {
 			
 			if(curColor==RED)
 			{
-
-					int i=0;
-					int n = MAX_STEP;
-					struct rgbw rgbwf;
+ 
+					struct rgbw rgbwi,rgbwf;
 					rgbwf.r=0;
 					rgbwf.g=0;
 					rgbwf.b=0;
 					rgbwf.w=0;
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.g=rgbwf.g+(255.0/n);	
-       					//printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
-						setrgbw(rgbwf);
-						mgos_usleep(5000);
-					}
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.g=rgbwf.g-(255.0/n);	
-       					//printf ("\nGreen %f %1.3f ",rgbwf.g,(float)(rgbwf.g/255.0) );  			
-						setrgbw(rgbwf);
-						mgos_usleep(5000);
-					}
+					rgbwi=rgbwf;
+					rgbwf.g=250;
+					animate(rgbwi,rgbwf);
+					animate(rgbwf,rgbwi);
 			curColor=GREEN;
 
 
@@ -165,29 +131,15 @@ static void init_timer_cb(void *arg) {
 			{
 
 
-					int i=0;
-					int n = MAX_STEP;
-					struct rgbw rgbwf;
+					struct rgbw rgbwi,rgbwf;
 					rgbwf.r=0;
 					rgbwf.g=0;
 					rgbwf.b=0;
 					rgbwf.w=0;
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.b=rgbwf.b+(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.b=rgbwf.b-(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
+					rgbwi=rgbwf;
+					rgbwf.b=250;
+					animate(rgbwi,rgbwf);
+					animate(rgbwf,rgbwi);
 			curColor=BLUE;
 			 
 			}
@@ -195,58 +147,29 @@ static void init_timer_cb(void *arg) {
 
 
 
-					int i=0;
-					int n = MAX_STEP;
-					struct rgbw rgbwf;
+						struct rgbw rgbwi,rgbwf;
 					rgbwf.r=0;
 					rgbwf.g=0;
 					rgbwf.b=0;
 					rgbwf.w=0;
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.r=rgbwf.r+(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.r=rgbwf.r-(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
+					rgbwi=rgbwf;
+					rgbwf.r=250;
+					animate(rgbwi,rgbwf);
+					animate(rgbwf,rgbwi);
 			curColor=RED;
 			 
 			}
 			else{
 
-
-					int i=0;
-					int n = MAX_STEP;
-					struct rgbw rgbwf;
+					struct rgbw rgbwi,rgbwf;
 					rgbwf.r=0;
 					rgbwf.g=0;
 					rgbwf.b=0;
 					rgbwf.w=0;
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.r=rgbwf.r+(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
-
-					for (i = 0; i < n; i++)
-					{
-
-						rgbwf.r=rgbwf.r-(255/n);				
-						setrgbw(rgbwf);
-						mgos_usleep(5);
-					}
+					rgbwi=rgbwf;
+					rgbwf.r=250;
+					animate(rgbwi,rgbwf);
+					animate(rgbwf,rgbwi);
 			curColor=RED;
 			 
 			}

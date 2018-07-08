@@ -26,5 +26,85 @@
     "pref_ota_lib": ""
   }, 
   "conf_acl": "*", 
-  "is_loading": false
+  "bt": {
+    "enable": true, 
+    "dev_name": "", 
+    "adv_enable": true, 
+    "scan_rsp_data_hex": "", 
+    "keep_enabled": false, 
+    "allow_pairing": true, 
+    "max_paired_devices": -1, 
+    "random_address": true, 
+    "gatts": {
+      "min_sec_level": 0, 
+      "require_pairing": false
+    }
+  }, 
+  "wifi": {
+    "ap": {
+      "enable": true, 
+      "ssid": "Mongoose_??????", 
+      "pass": "Mongoose", 
+      "hidden": false, 
+      "channel": 6, 
+      "max_connections": 10, 
+      "ip": "192.168.4.1", 
+      "netmask": "255.255.255.0", 
+      "gw": "192.168.4.1", 
+      "dhcp_start": "192.168.4.2", 
+      "dhcp_end": "192.168.4.100", 
+      "trigger_on_gpio": -1, 
+      "disable_after": 0, 
+      "hostname": "", 
+      "keep_enabled": true
+    }, 
+    "sta": {
+      "enable": false, 
+      "ssid": "", 
+      "pass": "", 
+      "user": "", 
+      "anon_identity": "", 
+      "cert": "", 
+      "key": "", 
+      "ca_cert": "", 
+      "ip": "", 
+      "netmask": "", 
+      "gw": "", 
+      "nameserver": "", 
+      "dhcp_hostname": ""
+    }, 
+    "sta1": {
+      "enable": false, 
+      "ssid": "", 
+      "pass": "", 
+      "user": "", 
+      "anon_identity": "", 
+      "cert": "", 
+      "key": "", 
+      "ca_cert": "", 
+      "ip": "", 
+      "netmask": "", 
+      "gw": "", 
+      "nameserver": "", 
+      "dhcp_hostname": ""
+    }, 
+    "sta2": {
+      "enable": false, 
+      "ssid": "", 
+      "pass": "", 
+      "user": "", 
+      "anon_identity": "", 
+      "cert": "", 
+      "key": "", 
+      "ca_cert": "", 
+      "ip": "", 
+      "netmask": "", 
+      "gw": "", 
+      "nameserver": "", 
+      "dhcp_hostname": ""
+    }, 
+    "sta_cfg_idx": 0, 
+    "sta_connect_timeout": 30
+  }, 
+  "is_loading": 0
 }
