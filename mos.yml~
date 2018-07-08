@@ -10,11 +10,10 @@ filesystem:
 
 config_schema:
   - ["is_loading", "i", 0,{title: "isInitDone"}]
-  - ["prev_rgbw", "o",{title: "Previous RGB"}]
-  - ["pre_rgbw.r", "i", 0,{title: "Previous RGB R"}]
-  - ["pre_rgbw.g", "i", 0,{title: "Previous RGB G"}]
-  - ["pre_rgbw.b", "i", 0,{title: "Previous RGB B"}]
-  - ["pre_rgbw.w", "i", 0,{title: "Previous RGB W"}]
+  - ["pre_rgbw_r", "i", 0,{title: "Previous RGB R"}]
+  - ["pre_rgbw_g", "i", 0,{title: "Previous RGB G"}]
+  - ["pre_rgbw_b", "i", 0,{title: "Previous RGB B"}]
+  - ["pre_rgbw_w", "i", 255,{title: "Previous RGB W"}]
 
 libs: 
   - origin: https://github.com/mongoose-os-libs/pwm
