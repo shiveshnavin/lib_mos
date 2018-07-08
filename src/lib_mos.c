@@ -287,7 +287,7 @@ bool mgos_lib_mos_init(void) {
 				char *content = json_fread("userData.json");
 				json_scanf(content, strlen(content), "{count: %d, led: {r: %d , g: %d , b:%d }}", &conf.count,  &conf.led.r ,&conf.led.g ,&conf.led.b  );
 				struct rgbw rgbww=conf.led; 
-
+ 
 				animate(czero,rgbww);
 			}
 			else{
