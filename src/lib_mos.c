@@ -51,13 +51,13 @@ static void setrgbw(struct rgbw color){
 			mgos_pwm_set(19,200,w);
 
 }
-void setRGBW(double r,double g,double b,double w)
+void setRGBW(int r,int g,int b,int w)
 {
 	struct rgbw zz=czero;
-	zz.r=r;
-	zz.g=g;
-	zz.b=b;
-	zz.w=w;
+	zz.r=(double)r;
+	zz.g=(double)g;
+	zz.b=(double)b;
+	zz.w=(double)w;
 	setrgbw(zz);
 }
 static void animate(struct rgbw rgb0, struct rgbw rgb1)
