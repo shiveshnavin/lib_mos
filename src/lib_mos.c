@@ -308,7 +308,7 @@ json_prettify_file("loading.json");
 
 
 
-
+/*
 
 	if(mgos_sys_config_get_wifi_sta_enable() || mgos_sys_config_get_wifi_sta1_enable() || mgos_sys_config_get_wifi_sta2_enable())
 	{	
@@ -319,10 +319,7 @@ json_prettify_file("loading.json");
 				struct rgbw led=czero;
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
-/*
-				struct rgbw white=czero;
-				white.w=250;
-				animate(czero,white);*/  
+  
 				
 				setPrevColor();
 			}
@@ -334,7 +331,7 @@ json_prettify_file("loading.json");
 	else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
 				blinkb();
-			}
+			}*/
 	
 	
 	return true;
