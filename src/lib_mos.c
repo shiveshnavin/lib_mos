@@ -43,7 +43,7 @@ static void setrgbw(struct rgbw color){
 				w=255;
 			//if(w==0)
 			//	w=g;
-			printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
+			
 
 			mgos_pwm_set(4,200,r);
 			mgos_pwm_set(16,200,g);
@@ -53,6 +53,8 @@ static void setrgbw(struct rgbw color){
 }
 void setRGBW(double r,double g,double b,double w)
 {
+
+	printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
 	struct rgbw zz=czero;
 	zz.r=r;
 	zz.g=g;
@@ -329,7 +331,7 @@ json_prettify_file("loading.json");
 	}
 	else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
-				blinkw();
+				blinkb();
 			}
 	
 	
