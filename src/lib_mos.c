@@ -309,7 +309,7 @@ json_prettify_file("loading.json");
 
 
 
-
+/*
 	if(mgos_sys_config_get_wifi_sta_enable() || mgos_sys_config_get_wifi_sta1_enable() || mgos_sys_config_get_wifi_sta2_enable())
 	{	
 		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
