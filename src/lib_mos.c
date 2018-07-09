@@ -203,10 +203,10 @@ static void init_timer_blink_rgb(void *arg) {
 		else {
 
 				lib_mos_init_done(true);	
-				struct rgbw white=czero;
+				/*struct rgbw white=czero;
 				white.w=250;
 				animate(czero,white);
-
+*/
 		}
 
   LOG(LL_INFO, ("%s", "Changing color"));  
@@ -321,7 +321,7 @@ json_prettify_file("loading.json");
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
   
 				
-				//setPrevColor();
+				setPrevColor();
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
