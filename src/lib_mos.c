@@ -313,11 +313,10 @@ json_prettify_file("loading.json");
 				blinkw();
 			}
 	}
-	else if(mgos_sys_config_get_bt_enable())
-	{
-		LOG(LL_INFO, ("%s", "lib_mos:wifi is off and bt is enabled"));
-		blinkb();
-	}
+	else{
+				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
+				blinkw();
+			}
 	
 	
 	return true;
