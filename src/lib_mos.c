@@ -13,6 +13,7 @@ static int RED=1,GREEN=2,BLUE=3;
 static int curColor=-1;
 static int timer_no=-1;
 static int counter=0;
+static int FREQ=200;
 static int STEP=100;
 static int DELAY=2500; 
  
@@ -45,16 +46,17 @@ static void setrgbw(struct rgbw color){
 			//	w=g;
 			
 
-			mgos_pwm_set(4,200,r);
-			mgos_pwm_set(16,200,g);
-			mgos_pwm_set(5,200,b);
-			mgos_pwm_set(19,200,w);
+			mgos_pwm_set(4,FREQ,r);
+			mgos_pwm_set(16,FREQ,g);
+			mgos_pwm_set(5,FREQ,b);
+			mgos_pwm_set(19,FREQ,w);
 
 }
-void setRGBW(double r,double g,double b,double w)
+void setRGBW(double r,double g,double b,double w,int frq)
 {
 
-	printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
+	//printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
+	FREQ=frq;
 	struct rgbw zz=czero;
 	zz.r=r;
 	zz.g=g;
