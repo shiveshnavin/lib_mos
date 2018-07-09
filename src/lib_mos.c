@@ -169,7 +169,7 @@ static void init_timer_blink_rgb(void *arg) {
 					rgbwi=rgbwf;
 					rgbwf.b=250;
 					animate(rgbwi,rgbwf);
-					animate(rgbwf,rgbwi);
+					//animate(rgbwf,rgbwi);
 			curColor=BLUE;
 			 
 			}
@@ -182,7 +182,7 @@ static void init_timer_blink_rgb(void *arg) {
 					rgbwi=rgbwf;
 					rgbwf.r=250;
 					animate(rgbwi,rgbwf);
-					animate(rgbwf,rgbwi);
+					//animate(rgbwf,rgbwi);
 			curColor=RED;
 			 
 			}
@@ -193,7 +193,7 @@ static void init_timer_blink_rgb(void *arg) {
 					rgbwi=rgbwf;
 					rgbwf.r=250;
 					animate(rgbwi,rgbwf);
-					animate(rgbwf,rgbwi);
+					//animate(rgbwf,rgbwi);
 			curColor=RED;
 			 
 			}
@@ -321,16 +321,16 @@ json_prettify_file("loading.json");
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
   
 				
-				//setPrevColor();
+				setPrevColor();
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
-				//blinkw();
+				blinkw();
 			}
 	}
 	else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
-				//blinkb();
+				blinkb();
 			}
 	
 	
