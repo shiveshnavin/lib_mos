@@ -51,6 +51,15 @@ static void setrgbw(struct rgbw color){
 			mgos_pwm_set(19,200,w);
 
 }
+void setRGBW(double r,double g,double b,double w)
+{
+	struct rgbw zz=czero;
+	zz.r=r;
+	zz.g=g;
+	zz.b=b;
+	zz.w=w;
+	setrgbw(zz);
+}
 static void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
             int i=0;
@@ -238,6 +247,19 @@ void blinkw()
 	//blink yellow
 	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_blink_yellow, NULL);
 } 
+
+void setPrevColor(){
+	int r,g,b,w;
+				char *content = json_fread("userData.json");
+				LOG(LL_INFO, ("%s", content));
+				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
+				struct rgbw rgbww=led; 
+				rgbww.r=r;
+				rgbww.g=g;
+				rgbww.b=b;
+				free(content);
+				animate(czero,rgbww);
+}
 bool mgos_lib_mos_init(void) {
   printf("Hello From Library");
 
@@ -297,16 +319,8 @@ json_prettify_file("loading.json");
 				struct rgbw white=czero;
 				white.w=250;
 				animate(czero,white);*/  
-				int r,g,b,w;
-				char *content = json_fread("userData.json");
-				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
-				struct rgbw rgbww=led; 
-				rgbww.r=r;
-				rgbww.g=g;
-				rgbww.b=b;
-				free(content);
-				animate(czero,rgbww);
+				
+				setPrevColor();
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
