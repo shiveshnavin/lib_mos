@@ -5,21 +5,21 @@
 struct rgbw{
 	double r,g,b,w;
 };
-static int count=0;
-static struct rgbw color,pcolor;
-static struct rgbw cred,cgreen,cblue,czero;
+  int count=0;
+  struct rgbw color,pcolor;
+  struct rgbw cred,cgreen,cblue,czero;
 
-static int RED=1,GREEN=2,BLUE=3;
-static int curColor=-1;
-static int timer_no=-1;
-static int counter=0;
-static int FREQ=200;
-static int STEP=100;
-static int DELAY=2500; 
+  int RED=1,GREEN=2,BLUE=3;
+  int curColor=-1;
+  int timer_no=-1;
+  int counter=0;
+  int FREQ=200;
+  int STEP=100;
+  int DELAY=2500; 
  
 struct my_config { int a; char *b; } c = { .a = 0, .b = NULL };
 struct user_config { int count; struct rgbw led; } ;
-static void setrgbw(struct rgbw color){
+  void setrgbw(struct rgbw color){
 
 			double r,g,b,w;
 			r=color.r/255.0;
@@ -64,7 +64,7 @@ LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
 	zz.w=w;
 	setrgbw(zz);
 }
-static void animate(struct rgbw rgb0, struct rgbw rgb1)
+  void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
             int i=0;
             struct rgbw rgbwf;
@@ -94,17 +94,11 @@ static void animate(struct rgbw rgb0, struct rgbw rgb1)
             };
        
 }
-static bool is_firmware_loaded()
+  bool is_firmware_loaded()
 {
 	int loaded=-1;
 	bool is_loading=false;
-	/*if(counter++>3)
-	{
-
-		mgos_config_apply("{\"is_loading\":1}", true);
-		printf("Now setting is_loading=1");
-	}
-
+	
 	char *content = json_fread("is_loading.json");
 	LOG(LL_INFO, ("%s", content));
 	json_scanf(content, strlen(content), "{loading: %d}",  &loaded  );
@@ -121,11 +115,17 @@ static bool is_firmware_loaded()
 	{
 		is_loading=true;
 	}
- 
+  if(counter++>3)
+	{
+
+		 is_loading=true;
+		printf("Now setting is_loading=1");
+	}
+
 	return is_loading;
 }
 
-static bool lib_mos_init_done(bool initdone)
+  bool lib_mos_init_done(bool initdone)
 {
 
 	bool success=false;
@@ -141,7 +141,7 @@ static bool lib_mos_init_done(bool initdone)
 	return success;
 }
 int MAX_STEP=200;
-static void init_timer_blink_rgb(void *arg) {
+  void init_timer_blink_rgb(void *arg) {
   
 
 	if(!is_firmware_loaded()&&counter++<60){
@@ -213,7 +213,7 @@ static void init_timer_blink_rgb(void *arg) {
 
 
 }
-static void init_timer_blink_yellow(void *arg) {
+  void init_timer_blink_yellow(void *arg) {
    
 
 	if(!is_firmware_loaded()){
