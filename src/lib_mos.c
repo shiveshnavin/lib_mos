@@ -253,7 +253,7 @@ void setPrevColor(){
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
-				struct rgbw rgbww=led; 
+				struct rgbw rgbww=czero; 
 				rgbww.r=r;
 				rgbww.g=g;
 				rgbww.b=b;
