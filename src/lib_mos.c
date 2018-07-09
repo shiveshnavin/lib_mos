@@ -321,16 +321,16 @@ json_prettify_file("loading.json");
 				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
   
 				
-				setPrevColor();
+				//setPrevColor();
 			}
 			else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
-				blinkw();
+				//blinkw();
 			}
 	}
 	else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
-				blinkb();
+				//blinkb();
 			}
 	
 	
