@@ -331,7 +331,7 @@ json_prettify_file("loading.json");
 	else{
 				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
 				blinkb();
-			}/**/
+			}*/
 	
 	
 	return true;
