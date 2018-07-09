@@ -98,14 +98,7 @@ LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
 {
 	int loaded=-1;
 	bool is_loading=false;
-	
-	char *content = json_fread("is_loading.json");
-	LOG(LL_INFO, ("%s", content));
-	json_scanf(content, strlen(content), "{loading: %d}",  &loaded  );
-	LOG(LL_INFO, ("%d", loaded));
-	free(content);
-	LOG(LL_INFO, ("%s", "lib_mos:  isLoading  "));
-	LOG(LL_INFO, ("%d",loaded));*/
+	 
 
 
 	char *content = json_fread("loading.json");
