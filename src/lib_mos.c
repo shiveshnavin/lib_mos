@@ -108,12 +108,14 @@ LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
 	{
 		is_loading=true;
 	}
+
+	/*
   if(counter++>3)
 	{
 
 		 is_loading=true;
 		printf("Now setting is_loading=1");
-	}
+	}*/
 
 	return is_loading;
 }
