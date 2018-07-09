@@ -54,7 +54,7 @@ static void setrgbw(struct rgbw color){
 }
 void setRGBW(double r,double g,double b,double w,int frq)
 {
-
+LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
 	//printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
 	FREQ=frq;
 	struct rgbw zz=czero;
