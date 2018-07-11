@@ -74,6 +74,11 @@ bool mgos_lib_mos_init(void) {
 	mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
+
+			mgos_pwm_set(4,200,0.1);
+			mgos_pwm_set(16,200,0.1);
+			mgos_pwm_set(5,200,0.1);
+			mgos_pwm_set(19,200,0.1);
  
 
 		json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
