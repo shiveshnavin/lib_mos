@@ -6,8 +6,7 @@ struct rgbw{
 	double r,g,b,w;
 };
   int count=0;
-  struct rgbw color,pcolor;
-  struct rgbw cred,cgreen,cblue,czero;
+  struct rgbw czero;
 
   int RED=1,GREEN=2,BLUE=3;
   int curColor=-1;
@@ -51,50 +50,21 @@ struct user_config { int count; struct rgbw led; } ;
 			mgos_pwm_set(5,FREQ,b);
 			mgos_pwm_set(19,FREQ,w);
 
-} 
-void animate(struct rgbw rgb0, struct rgbw rgb1)
-{
-            int i=0;
-            struct rgbw rgbwf;
-			int step=STEP;
- 
- 	       int dr=rgb1.r-rgb0.r;
-           int dg=rgb1.g-rgb0.g;
-           int db=rgb1.b-rgb0.b;
-           int dw=rgb1.w-rgb0.w; 
-        
-       //printf ("\n%f %f %f %f",dr,dg,db,dw );  
+}  
 
-         
-			rgbwf=czero;
-			 
-            for(i=0;i<=step;i++)
-            {
-               rgbwf.r=rgb0.r + ((dr * i) / step);
-               rgbwf.g=rgb0.g + ((dg * i) / step);
-               rgbwf.b=rgb0.b + ((db * i) / step);
-               rgbwf.w=rgb0.w + ((dw * i) / step);
-              
-			  // printf("%d %f",rgbwf.r,((dr * i) / step));
-			   setrgbw(rgbwf);
-               mgos_usleep(DELAY);
-               
-            };
-       
-} 
-
-void setPrevColor(){
+			void setPrevColor(){
 				int r,g,b,w;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
-				struct rgbw rgbww=czero; 
+				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d , led_w:%d}", &count,  &r,&g,&b,&w  );
+				struct rgbw rgbww; 
 				rgbww.r=r;
 				rgbww.g=g;
 				rgbww.b=b;
-				free(content);
-				animate(czero,rgbww);
-}
+				rgbww.w=w;
+				free(content); 
+				setrgbw(rgbww);
+			}
 
 bool mgos_lib_mos_init(void) {
 	
@@ -104,23 +74,7 @@ bool mgos_lib_mos_init(void) {
 	mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
-
-		color.r=0;
-		color.g=0;
-		color.b=0;
-		color.w=0;
-		czero=color;
-		printf("lib_mos : Hello World !!");
-		pcolor=color;
-
-		cred=color;
-		cred.r=250;
-
-		cgreen=color;
-		cgreen.g=250;
-
-		cblue=color;
-		cblue.b=250; 
+ 
 
 		json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
 		json_prettify_file("loading.json"); 
