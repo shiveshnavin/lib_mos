@@ -67,7 +67,7 @@ struct user_config { int count; struct rgbw led; } ;
 			}
 
 bool mgos_lib_mos_init(void) {
-	
+	/*
 	LOG(LL_INFO, ("%s", "Hello From Library Log"));  
 	mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(16, MGOS_GPIO_MODE_OUTPUT);
@@ -81,6 +81,6 @@ bool mgos_lib_mos_init(void) {
 
 		setPrevColor();
 	
-
+*/
 	return true;
 }
