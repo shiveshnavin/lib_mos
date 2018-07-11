@@ -84,7 +84,7 @@ void animate(struct rgbw rgb0, struct rgbw rgb1)
 } 
 
 void setPrevColor(){
-	int r,g,b,w;
+				int r,g,b,w;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d }", &count,  &r,&g,&b  );
