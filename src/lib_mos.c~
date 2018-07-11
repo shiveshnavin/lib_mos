@@ -33,14 +33,14 @@ struct user_config { int count; struct rgbw led; } ;
 				b=0;
 			if(w<0)
 				w=0;
-			if(r>255)
-				r=255;
-			if(g>255)
-				g=255;
-			if(b>255)
-				b=255;
-			if(w>255)
-				w=255;
+			if(r>1)
+				r=1;
+			if(g>1)
+				g=1;
+			if(b>1)
+				b=1;
+			if(w>1)
+				w=1;
 			//if(w==0)
 			//	w=g;
 			
