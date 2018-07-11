@@ -51,20 +51,8 @@ struct user_config { int count; struct rgbw led; } ;
 			mgos_pwm_set(5,FREQ,b);
 			mgos_pwm_set(19,FREQ,w);
 
-}
-void setRGBW(double r,double g,double b,double w,int frq)
-{
-LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
-	//printf ("\nSet PWM Lib : %f %f %f %f",r,g,b,w );  
-	FREQ=frq;
-	struct rgbw zz=czero;
-	zz.r=r;
-	zz.g=g;
-	zz.b=b;
-	zz.w=w;
-	setrgbw(zz);
-}
-  void animate(struct rgbw rgb0, struct rgbw rgb1)
+} 
+void animate(struct rgbw rgb0, struct rgbw rgb1)
 {
             int i=0;
             struct rgbw rgbwf;
@@ -93,158 +81,6 @@ LOG(LL_INFO, ("%s", "lib_mos:  setRGBW  "));
                
             };
        
-}
-  bool is_firmware_loaded()
-{
-	int loaded=-1;
-	bool is_loading=false;
-	 
-
-
-	char *content = json_fread("loading.json");
-	json_scanf(content, strlen(content), "{a: %d, b: %Q}", &c.a, &c.b);
-	LOG(LL_INFO, ("%d", c.a));  
-	if(c.a==111)
-	{
-		is_loading=true;
-	}
-
-	/*
-  if(counter++>3)
-	{
-
-		 is_loading=true;
-		printf("Now setting is_loading=1");
-	}*/
-
-	return is_loading;
-}
-
-  bool lib_mos_init_done(bool initdone)
-{
-
-	bool success=false;
-		
-	if(timer_no!=-1&&initdone)
-	{
-		mgos_clear_timer(timer_no);
-		timer_no=-1;
-  	    LOG(LL_INFO, ("%s", "lib_mos:Init Completed"));  
-	}
-	
-	 
-	return success;
-}
-int MAX_STEP=200;
-  void init_timer_blink_rgb(void *arg) {
-  
-
-	if(!is_firmware_loaded()&&counter++<60){
-			
-			if(curColor==RED)
-			{
- 
-					struct rgbw rgbwi,rgbwf;
-					rgbwf=czero;
-					rgbwi=rgbwf;
-					rgbwf.g=250;
-					animate(rgbwi,rgbwf);
-					animate(rgbwf,rgbwi);
-			curColor=GREEN;
-
-
-
-			}
-			else if(curColor==GREEN)
-			{
-
-
-					struct rgbw rgbwi,rgbwf;
-					rgbwf=czero;
-					rgbwi=rgbwf;
-					rgbwf.b=250;
-					animate(rgbwi,rgbwf);
-					//animate(rgbwf,rgbwi);
-			curColor=BLUE;
-			 
-			}
-			else if(curColor==BLUE){
-
-
-
-						struct rgbw rgbwi,rgbwf;
-					rgbwf=czero;
-					rgbwi=rgbwf;
-					rgbwf.r=250;
-					animate(rgbwi,rgbwf);
-					//animate(rgbwf,rgbwi);
-			curColor=RED;
-			 
-			}
-			else{
-
-					struct rgbw rgbwi,rgbwf;
-					rgbwf=czero;
-					rgbwi=rgbwf;
-					rgbwf.r=250;
-					animate(rgbwi,rgbwf);
-					//animate(rgbwf,rgbwi);
-			curColor=RED;
-			 
-			}
-
-
-		}
-		else {
-
-				lib_mos_init_done(true);	
-				/*struct rgbw white=czero;
-				white.w=250;
-				animate(czero,white);
-*/
-		}
-
-  LOG(LL_INFO, ("%s", "Changing color"));  
-
-
-}
-  void init_timer_blink_yellow(void *arg) {
-   
-
-	if(!is_firmware_loaded()){
-			
-			 
-					struct rgbw rgbwi,rgbwf;
-					rgbwf=czero;
-					rgbwi=rgbwf;
-					rgbwf.r=250;
-					rgbwf.g=250;
-					animate(rgbwi,rgbwf);
-					animate(rgbwf,rgbwi);
-			 
- 
-		}
-		else {
-
-
-			
-				lib_mos_init_done(true);
-
-		}
-
-  LOG(LL_INFO, ("%s", "Changing color"));  
-
-
-}
-void blinkb()
-{
-	//blink rgb
-	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_blink_rgb, NULL);
-}
-void blinkw()
-{
-	//blink yellow
-	timer_no=mgos_set_timer(1000, MGOS_TIMER_REPEAT, init_timer_blink_yellow, NULL);
 } 
 
 void setPrevColor(){
@@ -259,75 +95,38 @@ void setPrevColor(){
 				free(content);
 				animate(czero,rgbww);
 }
+
 bool mgos_lib_mos_init(void) {
-  printf("Hello From Library");
-
-  LOG(LL_INFO, ("%s", "Hello From Library Log"));  
-  mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
-  mgos_gpio_set_mode(16, MGOS_GPIO_MODE_OUTPUT);
-  mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
-  mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
-
-
-	color.r=0;
-	color.g=0;
-	color.b=0;
-	color.w=0;
-	czero=color;
-
-	pcolor=color;
-
-	cred=color;
-	cred.r=250;
-
-	cgreen=color;
-	cgreen.g=250;
-
-	cblue=color;
-	cblue.b=250;
-	mgos_config_apply("{\"is_loading\":0}", true);
-
-		/*fp=fopen("is_loading.bin", "w");
-		fwrite("still loading" , 1 , sizeof("still loading") , fp );
-		fclose(fp);
 	
-		fp=fopen("is_loading.bin", "r");
-		fread(buf, 1, sizeof(buf), fp);
-		fclose(fp);
-		LOG(LL_INFO, ("%s", buf));  
-	*/
+	LOG(LL_INFO, ("%s", "Hello From Library Log"));  
+	mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(16, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
 
-json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
-json_prettify_file("loading.json"); 
+		color.r=0;
+		color.g=0;
+		color.b=0;
+		color.w=0;
+		czero=color;
+		printf("lib_mos : Hello World !!");
+		pcolor=color;
 
+		cred=color;
+		cred.r=250;
 
+		cgreen=color;
+		cgreen.g=250;
 
+		cblue=color;
+		cblue.b=250; 
 
-/**/
-	if(mgos_sys_config_get_wifi_sta_enable() || mgos_sys_config_get_wifi_sta1_enable() || mgos_sys_config_get_wifi_sta2_enable())
-	{	
-		LOG(LL_INFO, ("%s", "lib_mos:wifi sta is enabled"));
-		if(mgos_sys_config_get_wifi_sta_ssid()!=NULL || mgos_sys_config_get_wifi_sta1_ssid()!=NULL || mgos_sys_config_get_wifi_sta2_ssid()!=NULL )
-			{ 
-				int count;
-				struct rgbw led=czero;
-				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is "));
-				LOG(LL_INFO, ("%s", mgos_sys_config_get_wifi_sta_ssid()));
-  
-				
-				setPrevColor();
-			}
-			else{
-				LOG(LL_INFO, ("%s", "lib_mos:wifi ssid is null"));
-				blinkw();
-			}
-	}
-	else{
-				LOG(LL_INFO, ("%s", "lib_mos:wifi is off"));
-				blinkb();
-			}
+		json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
+		json_prettify_file("loading.json"); 
+
+		setPrevColor();
 	
-	
+
 	return true;
 }
