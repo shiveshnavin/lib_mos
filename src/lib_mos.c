@@ -1,5 +1,6 @@
 #include "mgos.h"
 #include "mgos_pwm.h"
+#include "math.h"
 #include <stdio.h>
 
 struct rgbw{
