@@ -54,6 +54,7 @@ void hsi2rgbw(float H, float S, float I, int* rgbw) {
     w = 255*(1-S)*I;
   }
   
+				LOG(LL_INFO, ("%s %d %d %d %d", "HSV TO RGB IS ",rgbw[0],rgbw[1],rgbw[2],rgbw[3])); 
   rgbw[0]=r;
   rgbw[1]=g;
   rgbw[2]=b;
@@ -108,6 +109,8 @@ struct user_config { int count; struct rgbw led; } ;
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d, hsv_h:%d, hsv_s:%f, hsv_v:%f}", &count,  &h,&s,&v );
 				 
+				LOG(LL_INFO, ("%s %f %f %f", "HSV IS ",h,s,v)); 
+
 				int rgbw1[]={0,0,0,0};
 				free(content);  
 
