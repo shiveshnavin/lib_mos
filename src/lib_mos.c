@@ -20,7 +20,7 @@ struct rgbw{
 
 
 #define DEG_TO_RAD(X) (M_PI*(X)/180)
-struct rgbw convertHSI2RGB(float h, float s, float v)
+int convertHSI2RGB_R(float h, float s, float v)
 {
 				int rgbw1[]={0,0,0,0};
 				hsi2rgbw(h,s,v,rgbw1); 
@@ -30,7 +30,53 @@ struct rgbw convertHSI2RGB(float h, float s, float v)
 				rgbww.b=rgbw1[2];
 				rgbww.w=rgbw1[3]; 
 
-		return rgbww;
+		 return rgbww.r;
+
+}
+
+
+int convertHSI2RGB_G(float h, float s, float v)
+{
+				int rgbw1[]={0,0,0,0};
+				hsi2rgbw(h,s,v,rgbw1); 
+				struct rgbw rgbww;
+				rgbww.r=rgbw1[0];
+				rgbww.g=rgbw1[1];
+				rgbww.b=rgbw1[2];
+				rgbww.w=rgbw1[3]; 
+
+		 return rgbww.g;
+
+}
+
+
+
+int convertHSI2RGB_B(float h, float s, float v)
+{
+				int rgbw1[]={0,0,0,0};
+				hsi2rgbw(h,s,v,rgbw1); 
+				struct rgbw rgbww;
+				rgbww.r=rgbw1[0];
+				rgbww.g=rgbw1[1];
+				rgbww.b=rgbw1[2];
+				rgbww.w=rgbw1[3]; 
+
+		 return rgbww.b;
+
+}
+
+
+int convertHSI2RGB_W(float h, float s, float v)
+{
+				int rgbw1[]={0,0,0,0};
+				hsi2rgbw(h,s,v,rgbw1); 
+				struct rgbw rgbww;
+				rgbww.r=rgbw1[0];
+				rgbww.g=rgbw1[1];
+				rgbww.b=rgbw1[2];
+				rgbww.w=rgbw1[3]; 
+
+		 return rgbww.w;
 
 }
 void hsi2rgbw(float H, float S, float I, int* rgbw) {
@@ -66,7 +112,7 @@ void hsi2rgbw(float H, float S, float I, int* rgbw) {
     w = 255*(1-S)*I;
   }
   
-				LOG(LL_INFO, ("%s %d %d %d %d", "HSV TO RGB IS ",rgbw[0],rgbw[1],rgbw[2],rgbw[3])); 
+				//LOG(LL_INFO, ("%s %d %d %d %d", "HSV TO RGB IS ",rgbw[0],rgbw[1],rgbw[2],rgbw[3])); 
   rgbw[0]=r;
   rgbw[1]=g;
   rgbw[2]=b;
