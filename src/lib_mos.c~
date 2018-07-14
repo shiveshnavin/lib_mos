@@ -107,7 +107,7 @@ struct user_config { int count; struct rgbw led; } ;
 				float h,s,v;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, hsv_h:%d, hsv_s:%f, hsv_v:%f}", &count,  &h,&s,&v );
+				json_scanf(content, strlen(content), "{count: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,  &h,&s,&v );
 				 
 				LOG(LL_INFO, ("%s %f %f %f", "HSV IS ",h,s,v)); 
 
