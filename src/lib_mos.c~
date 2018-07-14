@@ -156,6 +156,7 @@ struct user_config { int count; struct rgbw led; } ;
 
 			mgos_pwm_set(4,FREQ,r);
 			mgos_pwm_set(15,FREQ,g);
+			mgos_pwm_set(16,FREQ,g);
 			mgos_pwm_set(5,FREQ,b);
 			mgos_pwm_set(19,FREQ,w);
 
@@ -196,6 +197,7 @@ bool mgos_lib_mos_init(void) {
 	LOG(LL_INFO, ("%s", "Hello From Library Log"));  
 	mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(15, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(16, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
 
