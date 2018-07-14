@@ -136,13 +136,13 @@ bool mgos_lib_mos_init(void) {
 */
 
 
-				int rgbw[]={0,0,0,0};
-				hsi2rgbw(120,1,1,rgbw); 
+				int rgbw1[]={0,0,0,0};
+				hsi2rgbw(120,1,1,rgbw1); 
 				struct rgbw rgbww;
-				rgbww.r=rgbw[0];
-				rgbww.g=rgbw[1];
-				rgbww.b=rgbw[2];
-				rgbww.w=rgbw[3]; 
+				rgbww.r=rgbw1[0];
+				rgbww.g=rgbw1[1];
+				rgbww.b=rgbw1[2];
+				rgbww.w=rgbw1[3]; 
 				setrgbw(rgbww);
 
 
