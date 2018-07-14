@@ -20,7 +20,7 @@ struct rgbw{
 
 
 #define DEG_TO_RAD(X) (M_PI*(X)/180)
-void convertHSI2RGB(float h, float s, float v)
+struct rgbw convertHSI2RGB(float h, float s, float v)
 {
 				int rgbw1[]={0,0,0,0};
 				hsi2rgbw(h,s,v,rgbw1); 
