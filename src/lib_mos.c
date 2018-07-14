@@ -165,9 +165,17 @@ struct user_config { int count; struct rgbw led; } ;
 			void setPrevColor(){
 
 				float h,s,v;
+				int def;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,  &h,&s,&v );
+				json_scanf(content, strlen(content), "{count: %d,def: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,&def,  &h,&s,&v );
+
+				if(def==0)
+				{
+					LOG(LL_INFO, ("flag was 0 , Lib is sleeping now")); 
+					return;
+
+				}
 				 
 				LOG(LL_INFO, ("%s %f %f %f", "HSV IS ",h,s,v)); 
 
