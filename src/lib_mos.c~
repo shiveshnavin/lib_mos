@@ -47,7 +47,7 @@ struct user_config { int count; struct rgbw led; } ;
 			
 
 			mgos_pwm_set(4,FREQ,r);
-			mgos_pwm_set(16,FREQ,g);
+			mgos_pwm_set(15,FREQ,g);
 			mgos_pwm_set(5,FREQ,b);
 			mgos_pwm_set(19,FREQ,w);
 
