@@ -12,7 +12,7 @@ struct rgbw{
   int curColor=-1;
   int timer_no=-1;
   int counter=0;
-  int FREQ=200;
+  int FREQ=1000;
   int STEP=100;
   int DELAY=2500; 
  
@@ -138,6 +138,7 @@ bool mgos_lib_mos_init(void) {
 
 				int rgbw[]={0,0,0,0};
 				hsi2rgbw(120,1,1,rgbw); 
+				struct rgbw rgbww;
 				rgbww.r=rgbw[0];
 				rgbww.g=rgbw[1];
 				rgbww.b=rgbw[2];
