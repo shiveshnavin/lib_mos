@@ -54,17 +54,26 @@ struct user_config { int count; struct rgbw led; } ;
 }  
 
 			void setPrevColor(){
-				int r,g,b,w;
+
+				float h,s,v;
 				char *content = json_fread("userData.json");
 				LOG(LL_INFO, ("%s", content));
-				json_scanf(content, strlen(content), "{count: %d, led_r: %d , led_g: %d , led_b:%d , led_w:%d}", &count,  &r,&g,&b,&w  );
-				struct rgbw rgbww; 
-				rgbww.r=r;
-				rgbww.g=g;
-				rgbww.b=b;
-				rgbww.w=w;
-				free(content); 
+				json_scanf(content, strlen(content), "{count: %d, hsv_h:%d, hsv_s:%f, hsv_v:%f}", &count,  &h,&s,&v );
+				 
+				int rgbw1[]={0,0,0,0};
+				free(content);  
+
+
+				hsi2rgbw(h,s,v,rgbw1); 
+				struct rgbw rgbww;
+				rgbww.r=rgbw1[0];
+				rgbww.g=rgbw1[1];
+				rgbww.b=rgbw1[2];
+				rgbww.w=rgbw1[3]; 
 				setrgbw(rgbww);
+
+
+
 			}
 
 
@@ -117,34 +126,23 @@ void hsi2rgbw(float H, float S, float I, int* rgbw) {
 bool mgos_lib_mos_init(void) {
 	
 	LOG(LL_INFO, ("%s", "Hello From Library Log"));  
-	/*mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
-	mgos_gpio_set_mode(16, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(4, MGOS_GPIO_MODE_OUTPUT);
+	mgos_gpio_set_mode(15, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(5, MGOS_GPIO_MODE_OUTPUT);
 	mgos_gpio_set_mode(19, MGOS_GPIO_MODE_OUTPUT);
-*/
+
 
 			//mgos_pwm_set(4,200,0.1);
 			//mgos_pwm_set(16,200,0.1);
 			//mgos_pwm_set(5,200,0.1);
 			//mgos_pwm_set(19,200,0.1);
  
-
-		/*json_fprintf("loading.json", "{ a: %d, b: %Q }", 123, "turn to 111 once loaded");
-		json_prettify_file("loading.json"); 
-
+ 
 		setPrevColor();
 	
-*/
 
 
-				int rgbw1[]={0,0,0,0};
-				hsi2rgbw(120,1,1,rgbw1); 
-				struct rgbw rgbww;
-				rgbww.r=rgbw1[0];
-				rgbww.g=rgbw1[1];
-				rgbww.b=rgbw1[2];
-				rgbww.w=rgbw1[3]; 
-				setrgbw(rgbww);
+
 
 
 	return true;
