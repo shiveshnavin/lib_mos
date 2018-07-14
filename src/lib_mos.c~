@@ -92,7 +92,7 @@ struct user_config { int count; struct rgbw led; } ;
 			//	w=g;
 			
 
-				LOG(LL_INFO, ("%s %d %d %d %d", "RGBW IS ",color.r,color.g,color.b,color.w)); 
+				printf("%s %d %d %d %d", "RGBW IS ",color.r,color.g,color.b,color.w); 
 
 			mgos_pwm_set(4,FREQ,r);
 			mgos_pwm_set(15,FREQ,g);
