@@ -1,4 +1,3 @@
-name: lib_mos
 type: lib
 version: "1.0"
 platform: esp32
@@ -7,14 +6,14 @@ platforms:
 author: mongoose-os
 description: An empty lib that does nothing
 sources:
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/src/lib_mos.c
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/src/lib_mos.c
 includes:
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/bt-common/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/bt-common/include/esp32
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/wifi/include
-- /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/wifi/esp32/include
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/mongoose/include
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/bt-common/include
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/bt-common/include/esp32
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/pwm/include
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/wifi/include
+- /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/wifi/esp32/include
 libs:
 - origin: https://github.com/mongoose-os-libs/mongoose
   location: https://github.com/mongoose-os-libs/mongoose
@@ -322,30 +321,30 @@ mongoose_os_version: "2.3"
 manifest_version: 2017-09-29
 libs_handled:
 - name: mongoose
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose
+  path: /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/mongoose
   sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/mongoose/src
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/mongoose/src
 - name: bt-common
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/bt-common
+  path: /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/bt-common
   deps:
   - mongoose
   sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/bt-common/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/bt-common/src/esp32
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/bt-common/src
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/bt-common/src/esp32
 - name: pwm
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm
+  path: /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/pwm
   deps:
   - mongoose
   sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/pwm/src/esp32
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/pwm/src
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/pwm/src/esp32
 - name: wifi
-  path: /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/wifi
+  path: /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/wifi
   deps:
   - mongoose
   sources:
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/wifi/src
-  - /fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/libs/wifi/esp32/src
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/wifi/src
+  - /home/shivesh/Desktop/mansaa/area51/lib_mos/deps/wifi/esp32/src
 init_deps:
 - mongoose
 - bt-common

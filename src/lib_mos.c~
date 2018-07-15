@@ -172,7 +172,13 @@ struct user_config { int count; struct rgbw led; } ;
 
 				if(def==0)
 				{
-					LOG(LL_INFO, ("flag was 0 , Lib is sleeping now")); 
+					LOG(LL_INFO, ("flag was 0 , Lib is setting color to RED")); 
+					struct rgbw rgbww;
+					rgbww.r=255.0;
+					rgbww.g=0.0;
+					rgbww.b=0.0;
+					rgbww.w=0.0; 
+					setrgbw(rgbww);
 					return;
 
 				}

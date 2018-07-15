@@ -1,6 +1,6 @@
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/fw/tools/gen_sys_config.py --c_name=mgos_ro_vars --c_global_name=mgos_sys_ro_vars --dest_dir=/fwbuild-volumes/2.3/apps/lib_mos/esp32/build_contexts/build_ctx_050890222/build/gen/ /mongoose-os/fw/src/mgos_ro_vars_schema.yaml
+ * Command: /mongoose-os/fw/tools/gen_sys_config.py --c_name=mgos_ro_vars --c_global_name=mgos_sys_ro_vars --dest_dir=/home/shivesh/Desktop/mansaa/area51/lib_mos/build/gen/ /mongoose-os/fw/src/mgos_ro_vars_schema.yaml
  */
 
 #ifndef MGOS_RO_VARS_H_
