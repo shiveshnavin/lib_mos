@@ -179,7 +179,7 @@ struct user_config { int count; struct rgbw led; } ;
 					rgbww.b=0.0;
 					rgbww.w=0.0; 
 					//setrgbw(rgbww);
-					return;
+					//return;
 
 				}
 				 
