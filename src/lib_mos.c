@@ -170,9 +170,12 @@ struct user_config { int count; struct rgbw led; } ;
 				if(content==NULL)
 				{
 
-				LOG(LL_INFO, ("UserData.json not found"));
+				LOG(LL_INFO, ("UserData.json not found . Creating New One "));
+				json_fprintf("userData.json", "{ count: %d, def: %d ,hsv_h:%f ,hsv_s:%f ,hsv_v:%f  }", 0,0,0.0,1.0,1.0);
+				json_prettify_file("userData.json"); // Optional
+ 
 					
-return;					
+ 				
 				}
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d,def: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,&def,  &h,&s,&v );
