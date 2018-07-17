@@ -167,6 +167,13 @@ struct user_config { int count; struct rgbw led; } ;
 				float h,s,v;
 				int def;
 				char *content = json_fread("userData.json");
+				if(content==NULL)
+				{
+
+				LOG(LL_INFO, ("UserData.json not found"));
+					
+return;					
+				}
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d,def: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,&def,  &h,&s,&v );
 
