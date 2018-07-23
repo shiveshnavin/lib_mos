@@ -125,15 +125,6 @@ int convertHSI2RGB_W(float h, float s, float v)
 
 struct my_config { int a; char *b; } c = { .a = 0, .b = NULL };
 struct user_config { int count; struct rgbw led; } ;
-void setclr(double r,double g,double b,double w)
-{
-					struct rgbw rgbww;
-					rgbww.r=r;
-					rgbww.g=g;
-					rgbww.b=b;
-					rgbww.w=w; 
-					setrgbw(rgbww);
-}
   void setrgbw(struct rgbw color){
 
 			double r,g,b,w;
@@ -171,6 +162,15 @@ void setclr(double r,double g,double b,double w)
 
 }  
 
+void setclr(double r,double g,double b,double w)
+{
+					struct rgbw rgbww;
+					rgbww.r=r;
+					rgbww.g=g;
+					rgbww.b=b;
+					rgbww.w=w; 
+					setrgbw(rgbww);
+}
 			void setPrevColor(){
 
 				float h,s,v;
