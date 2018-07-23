@@ -189,6 +189,33 @@ void setclr(double r,double g,double b,double w)
 				LOG(LL_INFO, ("%s", content));
 				json_scanf(content, strlen(content), "{count: %d,def: %d, hsv_h:%f, hsv_s:%f, hsv_v:%f}", &count,&def,  &h,&s,&v );
 
+
+							 if(h<0)
+						    {
+						        h=0;
+						    }
+						    if(h>360)
+						    {
+						        h=360;
+						    }
+						                    if(s<0)
+						                    {
+						                        s=0;
+						                    }
+						                    if(s>1)
+						                    {
+						                        s=1;
+						                    }
+
+						    if(v<0)
+						    {
+						        v=0;
+						    }
+						    if(v>1)
+						    {
+						        v=1;
+						    }
+		
 				if(def==0)
 				{
 					LOG(LL_INFO, ("flag was 0 , Lib is setting color to RED")); 
